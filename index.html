@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
     <title>E-commerce grupp</title>
 </head>
@@ -12,7 +14,7 @@
 
 
 
-<section class="add_product_section">
+
     
     <div class="add_product_container">
         <form>
@@ -20,20 +22,22 @@
             <h2>Lägg till produkt</h2>
         
         <!-- inputs/add-button  -->
-
-            <label for="description">Beskrivning</label>
             <input type="text" id="product_name" placeholder="Produktnamn">
-            <input type="text" id="product_description" placeholder="Produktbeskrivning">
+            <textarea id="product_description" name="description" rows="4" cols="20" placeholder="Ange produktbeskrivning">
+             </textarea>
             <input type="number" id="product_price" placeholder="Produktpris">
 
             <button class="add_product">Lägg till produkt</button>
-            <button class="clear_product">Rensa</button>
+        
         </form>
+
     </div>
+    
+    
+<div class="product_container">
 
-</section>
 
-
+</div>
 
 
 
