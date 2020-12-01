@@ -7,13 +7,37 @@ const productName = document.querySelector("#product_name").value;
 const productDescription = document.querySelector("#product_description").value;
 const productPrice = document.querySelector("#product_price").value;
 
-var div = document.createElement ("div");
 
-var productDiv = document.querySelector(".product_container");
+//create Div
+const createdDiv = document.createElement ("div");
+const productDiv = document.querySelector(".product_container");
+productDiv.appendChild(createdDiv);
 
-productDiv.appendChild(div);
+//create H3 for title
+const createdTitle = document.createElement ("h3");
+createdDiv.appendChild(createdTitle);
+createdTitle.innerText= productName;
 
-div.innerText = productName + " : " + productDescription + " : " + productPrice;
+//create p for description
+const createdDescription = document.createElement ("p");
+createdDiv.appendChild(createdDescription);
+createdDescription.innerText= productDescription;
+
+// Create p for price
+const createdPrice = document.createElement ("p");
+createdDiv.appendChild(createdPrice);
+createdPrice.innerText= productPrice;
+
+const createAddToCartBtn = document.createElement("button");
+createdDiv.appendChild(createAddToCartBtn);
+createAddToCartBtn.innerText= "Add to cart";
+
+
+
+
+
+
+
 
 }
 
