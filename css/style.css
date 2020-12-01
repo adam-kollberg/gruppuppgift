@@ -20,9 +20,11 @@ input {
   .product_container div {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 2rem;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    background-color: burlywood;
+    margin-top: 3rem; }
 
 body {
   font-family: 'Raleway', sans-serif; }

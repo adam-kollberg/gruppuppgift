@@ -26,8 +26,10 @@ createdDescription.innerText= productDescription;
 // Create p for price
 const createdPrice = document.createElement ("p");
 createdDiv.appendChild(createdPrice);
-createdPrice.innerText= productPrice;
+createdPrice.innerText= productPrice + ":-";
 
+
+// Create button for add to cart
 const createAddToCartBtn = document.createElement("button");
 createdDiv.appendChild(createAddToCartBtn);
 createAddToCartBtn.innerText= "Add to cart";
@@ -41,9 +43,8 @@ createAddToCartBtn.innerText= "Add to cart";
 
 }
 
-
+// Added event listner
 var btn_add_product = document.querySelector(".add_product");
-
 btn_add_product.addEventListener("click", addProduct);
 
 
