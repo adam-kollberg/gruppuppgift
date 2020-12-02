@@ -48,6 +48,30 @@ btn_add_product.addEventListener("click", addProduct);
 
 
 
+// Function for export form from index.html to addproduct.html
+
+
+function sendProductInfo () {
+
+    
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Varukorg
 let carts = document.querySelectorAll(".add-cart");
 
