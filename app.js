@@ -66,10 +66,20 @@ btn_add_product.addEventListener("click", addProduct);
 
 // Function for export form from index.html to addproduct.html
 
-const loadImg = function(event) {
-	const image = document.querySelector(".product_img");
-	image.src = URL.createObjectURL(event.target.files[0]);
-};
+
+const loadImg = document.createElement("img"); 
+ 
+img.src = "image.png"; 
+const src = document.getElementById(".product_img"); 
+ 
+src.appendChild(img);
+
+
+
+ //const loadImg = function(event) {
+	//const image = document.querySelector(".product_img");
+	//image.src = URL.createObjectURL(event.target.files[0]);
+//};
 
 
 
