@@ -21,13 +21,13 @@ input {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly; }
-  .product_container div {
+  .product_container .single_product {
     display: flex;
     flex-direction: column;
     padding: 2rem;
     justify-content: center;
     align-items: center;
-    background-color: burlywood;
+    background-color: red;
     margin-top: 3rem; }
 
 body {
