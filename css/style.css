@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0; }
+
 form {
   display: flex;
   flex-direction: column;
@@ -28,3 +32,24 @@ input {
 
 body {
   font-family: 'Raleway', sans-serif; }
+
+.site_header {
+  background-color: burlywood;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center; }
+  .site_header .logo_container {
+    padding-bottom: 1rem;
+    padding-right: 2rem; }
+  .site_header ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style-type: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    font-size: 1.5rem; }
+    .site_header ul li {
+      padding-left: 1rem; }

@@ -3,6 +3,7 @@ function addProduct (e) {
 e.preventDefault()
 
 // Välja det olika värderna
+
 const productName = document.querySelector("#product_name").value;
 const productDescription = document.querySelector("#product_description").value;
 const productPrice = document.querySelector("#product_price").value;
@@ -12,6 +13,7 @@ const productPrice = document.querySelector("#product_price").value;
 const createdDiv = document.createElement ("div");
 const productDiv = document.querySelector(".product_container");
 productDiv.appendChild(createdDiv);
+
 
 //create H3 for title
 const createdTitle = document.createElement ("h3");
@@ -37,10 +39,6 @@ createAddToCartBtn.innerText= "Add to cart";
 
 
 
-
-
-
-
 }
 
 // Added event listner
@@ -50,7 +48,7 @@ btn_add_product.addEventListener("click", addProduct);
 
 
 
-
+// Varukorg
 let carts = document.querySelectorAll(".add-cart");
 
 for (let i = 0; i < carts.length; i++) { // loop thats run from 0 to carts length
