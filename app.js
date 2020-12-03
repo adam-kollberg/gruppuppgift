@@ -1,4 +1,3 @@
-
 function addProduct (e) {
 e.preventDefault()
 
@@ -9,11 +8,6 @@ const productDescription = document.querySelector("#product_description").value;
 const productPrice = document.querySelector("#product_price").value;
 
 
-
-
-
-
-
 //create Div
 const createdDiv = document.createElement ("div");
 const productDiv = document.querySelector(".product_container");
@@ -21,10 +15,16 @@ productDiv.appendChild(createdDiv);
 createdDiv.className += "single_product";
 
 // Create img
+
 const createdImg = document.createElement ("img");
 createdDiv.appendChild(createdImg);
-createdImg.innerHTML= productImg;
+createdImg.src = productImg;
 createdImg.className += "product_img";
+
+
+
+
+
 
 
 
