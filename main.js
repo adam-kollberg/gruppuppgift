@@ -1,6 +1,6 @@
 
 
-
+// add to cart button
 let carts = document.querySelectorAll(".single_product_btn");
 
 const products = [
@@ -142,8 +142,8 @@ Object.values(cartItems).map(item => {
   <img src="./bilder/${item.description}.jpeg">
   <div class = cart-product-wrapper>
   <h5>Produktnamn:</h5>
-  
   <span>${item.name}</span>
+  
   <span><h5>Pris:</h5>${item.price},00kr</span>
   
   <div class = "quantity">
@@ -181,6 +181,12 @@ productContainer.innerHTML += `
   }
 
 }
+
+
+
+
+
+
 
 
 onLoadCartNumbers()
