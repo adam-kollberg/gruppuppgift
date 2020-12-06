@@ -110,7 +110,9 @@ form {
       height: 300px; }
 
 body {
-  font-family: 'Raleway', sans-serif; }
+  font-family: 'Raleway', sans-serif;
+  height: 100%;
+  min-height: 100%; }
 
 .site_header {
   background-color: #F8F6F2;
@@ -186,3 +188,72 @@ ion-icon {
   .basket-total-container .basket-total {
     font-size: 25px;
     color: green; }
+
+#container {
+  min-height: 100%; }
+
+#main {
+  overflow: auto;
+  padding-bottom: 200px; }
+
+.footer {
+  display: flex;
+  position: relative;
+  padding-top: 40px;
+  justify-content: space-around;
+  text-align: center;
+  height: 200px;
+  margin-top: -100px;
+  bottom: 0%;
+  clear: both;
+  background-color: lightgray; }
+
+.footer img {
+  width: 120px;
+  height: 50px; }
+
+ul {
+  list-style: none; }
+
+.footer a {
+  text-decoration: none;
+  color: black; }
+
+.active_link, a:hover {
+  color: white;
+  font-weight: bold; }
+
+h3 {
+  margin-bottom: 10px; }
+
+h4 {
+  font-weight: 400; }
+
+.social-media img {
+  display: none; }
+
+@media only screen and (max-width: 617px) {
+  .footer {
+    flex-direction: column;
+    height: 528px; }
+  .footer ul {
+    margin-bottom: 40px; }
+  #main {
+    padding-bottom: 180px; }
+  h4 {
+    display: none; }
+  .social-media img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px; }
+  nav ul a {
+    font-size: 1rem; }
+  .logo_container h1 {
+    font-size: 1rem; } }
+
+@media only screen and (max-width: 441px) {
+  nav ul a {
+    font-size: 0.8rem; }
+  nav ul {
+    padding-right: 0.5rem; } }
