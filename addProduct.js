@@ -53,7 +53,26 @@ createdImg.className += "product_img";
     createdDiv.appendChild(createAddToCartBtn);
     createAddToCartBtn.innerText= "Add to cart";
     
-    
+
+    //Create remove-button
+    const createRemoveCartBtn = document.createElement("button");
+    createdDiv.appendChild(createRemoveCartBtn);
+    createRemoveCartBtn.innerText = "Remove product";
+    createRemoveCartBtn.className += "remove_product";
+
+
+
+
+// Remove product
+
+    let removeBtn = document.querySelector(".remove_product");
+     
+    removeBtn.addEventListener("click", removeProduct);
+
+    function removeProduct() {
+
+        createdDiv.remove();
+    }
     
     
     }
