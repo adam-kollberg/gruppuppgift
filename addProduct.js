@@ -24,7 +24,10 @@ function addProduct (e) {
     // Create img
     
    
-    
+const createdImg = document.createElement ("img");
+createdDiv.appendChild(createdImg);
+createdImg.src= "bilder/chanel.jpeg";
+createdImg.className += "product_img";
     
     
     

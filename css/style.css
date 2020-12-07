@@ -55,6 +55,8 @@ form {
       font-size: 16px;
       font-weight: 700;
       cursor: pointer; }
+    .product_container .single_product h3 {
+      margin-top: 1rem; }
 
 .product_heading {
   display: flex;
