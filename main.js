@@ -198,7 +198,7 @@ productContainer.innerHTML += `
   
    checkoutMessageContainer.innerHTML = `
   <div class = "checkoutMessage"> <h3 class "thank_you_title>Tack för ditt köp, din order är nu genomförd</h3> 
-  <button class ="pdf_btn"><i class="fas fa-file-pdf"></i>Ladda ner orderdetaljer som pdf</button>
+  <button class = "pdf_btn"> <i class="fas fa-file-pdf"></i> Ladda ner orderdetaljer som pdf</button>
   </div>
 ` 
   
@@ -209,7 +209,28 @@ productContainer.innerHTML += `
   
 checkOutBtn.addEventListener("click", checkoutNow)
 
-  
+
+
+
+
+
+let pdfBtn = document.querySelector(".pdf_btn");
+
+
+function savePDF() {
+
+
+
+pdf.text (10, 10, "yay PDF");
+
+pdf.save();
+}
+
+
+pdfBtn.addEventListener("click", savePDF);
+
+
+
 
 }
 
