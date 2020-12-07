@@ -11,6 +11,11 @@
     <title>Add product</title>
 </head>
 <body>
+  <div id = "container">
+
+    <div id = "main">
+
+  
 
     <header class="site_header">
         <div class="logo_container">
@@ -47,7 +52,7 @@
 
 <!-- inputs/add-button  -->
 <div class="add_product_container">
-        <form action="">
+        <form>
 
             <h2>Lägg till produkt</h2> 
              
@@ -58,10 +63,13 @@
                <input type=file name=filename id=file>
    
             
-            <input type="text" id="product_name" placeholder="Produktnamn">
-            <input id="product_description" name="description" placeholder="Ange produktbeskrivning" required ="required">
+            <!--<input type="text" id="product_name" placeholder="Produktnamn">
+            <input id="product_description" name="description" placeholder="Ange produktbeskrivning" required ="required">-->
+           
+            <input type="text" id="product_name" placeholder="Produktnamn" required>
+            <input id="product_description" name="description" placeholder="Ange produktbeskrivning" required >
              </input>
-            <input type="number" id="product_price" placeholder="Produktpris">
+            <input type="number" id="product_price" placeholder="Produktpris" required>
 
             <button class="add_product">Lägg till produkt</button>
         
@@ -75,6 +83,39 @@
 
 
     </div>
+  </div>
+  </div>
+
+    <footer class= "footer">
+     
+      <div class = "quick-links">
+        <h3>SNABB LÄNKAR</h3>
+        <ul>
+        <li><a href = "index.html">Hem</a></li>
+        <li><a href = "addproduct.html">Add Product</a></li>
+        <li><a href = "contact.html">Konkakta Oss</a> </li>
+      </ul>
+    </div>
+
+      <div class = "download-apps">
+        <ul>
+         <h3>INSTALLERA VÅRA APPAR</h3>
+        <li> <a href = "https://www.apple.com"> <img src = "bilder/apple-logo.png" alt = "apple app logo"> </a> </li>
+        <li> <a href = "https://play.google.com/store"> <img src = "bilder/google-logo.png" alt = "google app logo"></a></li>
+      </ul>
+    </div>
+
+      <div class = "social-media">
+        <h3>FÖLJ OSS PÅ</h3>
+        <ul>
+          <li> <a href = "https://www.facebook.com/"><h4>Facebook</h4><img src = "bilder/facebook.jpg"></a></li>
+          <li> <a href = "https://www.instagram.com/"><h4>Instagram</h4><img src = "bilder/instagram.webp"></a></li>
+          <li> <a href = "https://twitter.com/"><h4>Twitter</h4><img src= "bilder/twitter.png"></a></li>
+      </ul>
+      </div>
+    
+    </footer>
+
 
 
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>    
