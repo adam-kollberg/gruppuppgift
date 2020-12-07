@@ -29,12 +29,6 @@ createdDiv.appendChild(createdImg);
 createdImg.src= "bilder/chanel.jpeg";
 createdImg.className += "product_img";
     
-    
-    
-    
-    
-    
-    
     //create H3 for title
     const createdTitle = document.createElement ("h3");
     createdDiv.appendChild(createdTitle);
@@ -98,3 +92,43 @@ createdImg.className += "product_img";
 
   
     
+   const images = []
+
+   index = 0;
+images[0] = "/Users/nicklassegerdahl/REPOS/gruppuppgift/Images/picture1.jpg";
+images[1] = "/Users/nicklassegerdahl/REPOS/gruppuppgift/Images/picture2.jpg";
+images[2] = "/Users/nicklassegerdahl/REPOS/gruppuppgift/Images/picture3.jpg";
+index = Math.floor(Math.random() * images.length);
+document.write(images[index]);
+
+
+//done
+
+    /* function createImageBase(src, alt) {
+        var image = document.createElement('img');
+        image.src = src;
+        image.alt = alt;
+        return image;
+    }
+    
+    
+    function addPicture( ){
+       var location = document.getElementById("#file");
+       var image = createImageBase(imageSRC, imageSRC);
+       location.appendChild(image);
+    }
+    
+ */
+
+
+    /* function loadimg() {
+        const file = document.getElementById('file').files[0];
+        const reader  = new FileReader();
+        reader.onload = function(e)  {
+            const image = document.createElement("img");
+            image.src = e.target.result;
+            document.body.appendChild(image);
+         }
+         reader.readAsDataSrc(file);  
+        }  
+          */

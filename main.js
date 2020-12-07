@@ -1,4 +1,3 @@
-
 // add to cart button
 let carts = document.querySelectorAll(".single_product_btn");
 
@@ -150,33 +149,21 @@ function displayCart() {
   
   
   <span><h5>Antal:</h5> <ion-icon name="chevron-back-outline"></ion-icon>${item.inCart}</span>
-
   <ion-icon name="chevron-forward-outline"></ion-icon>
   </div>
   </div>
   </div>
-
   
   
 </div>
-
-
-
   `
     });
     productContainer.innerHTML += ` 
-
 <div class = "basket-total-container">
 <h4 class = "basket-total-title">Totalt i varukorgen:</h4>
 <h4 class = "basket-total"> ${cartCost},00kr </h4>
 <button class = "checkout-btn">Genomför Köp</button>
-
-
 <div>
-
-
-
-
 `
 
   }
@@ -226,6 +213,8 @@ console.log (cartItems);
 }
 onLoadCartNumbers()
 displayCart()
+
+
 
 
 
