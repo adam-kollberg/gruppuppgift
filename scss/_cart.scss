@@ -1,0 +1,65 @@
+
+
+.products {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+ flex-wrap: wrap;
+ align-items: center;
+ margin-left:40px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.cart-product-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#F8F6F2;
+    width: 100%; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+
+    h5 {
+    padding-top: 10px;
+    
+    }
+    
+   }
+
+img {
+  width: 150px;  
+  height: 150px;
+}
+
+ion-icon {
+font-size: px;
+cursor: pointer;
+}
+
+
+.basket-total-container {
+text-align: center;
+.basket-total-title {
+font-size: 25px;
+
+}
+
+.basket-total {
+font-size: 25px;
+color: green;
+}
+}
+
+
+
+

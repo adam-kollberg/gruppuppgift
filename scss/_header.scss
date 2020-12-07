@@ -1,13 +1,16 @@
 .site_header {
-background-color: burlywood;
+background-color: #F8F6F2;;
 display: flex;
 flex-direction:  row;
 justify-content: space-between;
 align-content: center;
 
 .logo_container {
-    padding-bottom: 1rem;
-    padding-right: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding-left: 1rem;
 }
 
 ul {
@@ -19,12 +22,33 @@ ul {
     padding-bottom: 1rem;
     padding-right: 2rem;
     font-size: 1.5rem;
+    
+
+
+.cart 
+    {
+        background-color: #FAF050;
+    }
 
  li {
 
-padding-left: 1rem;
+margin-left: 2rem;
+padding: 5px;
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+span {
+    padding-left: 0.5rem;
+}
 
  }
+
+
+
 }
 
 }
