@@ -184,15 +184,6 @@ productContainer.innerHTML += `
 
 
 
-
-
-
-
-
 onLoadCartNumbers()
 displayCart()
-
-
-
-
 
