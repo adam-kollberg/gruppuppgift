@@ -188,3 +188,42 @@ ion-icon {
   .basket-total-container .basket-total {
     font-size: 25px;
     color: green; }
+
+.checkout-btn {
+  background-color: #FAF050;
+  border-style: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 2rem; }
+
+.checkout-btn:hover {
+  background-color: black;
+  color: white; }
+
+.checkoutMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F8F6F2;
+  padding: 40px;
+  margin-top: 50px;
+  margin-right: 10%;
+  margin-left: 10%;
+  color: green; }
+  .checkoutMessage .pdf_btn {
+    background-color: #FAF050;
+    border-style: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 2rem; }

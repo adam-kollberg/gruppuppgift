@@ -133,6 +133,7 @@ let cartCost = localStorage.getItem("totalCost");
 
 
 
+
 if (cartItems && productContainer ) {
 productContainer.innerHTML = "";
 Object.values(cartItems).map(item => {
@@ -169,6 +170,7 @@ productContainer.innerHTML += `
 <div class = "basket-total-container">
 <h4 class = "basket-total-title">Totalt i varukorgen:</h4>
 <h4 class = "basket-total"> ${cartCost},00kr </h4>
+<button class = "checkout-btn">Genomför Köp</button>
 
 
 <div>
@@ -180,7 +182,43 @@ productContainer.innerHTML += `
 
   }
 
+
+
+
+
+
+ 
+  let checkOutBtn = document.querySelector(".checkout-btn");
+  let checkoutMessageContainer = document.querySelector(".checkout_message")
+  
+  
+  
+  function checkoutNow() {
+
+  
+   checkoutMessageContainer.innerHTML = `
+  <div class = "checkoutMessage"> <h3 class "thank_you_title>Tack för ditt köp, din order är nu genomförd</h3> 
+  <button class ="pdf_btn"><i class="fas fa-file-pdf"></i>Ladda ner orderdetaljer som pdf</button>
+  </div>
+` 
+  
+  
+  }
+  
+  
+  
+checkOutBtn.addEventListener("click", checkoutNow)
+
+  
+
 }
+
+
+
+
+
+
+
 
 
 
