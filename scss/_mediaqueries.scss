@@ -1,0 +1,57 @@
+@media only screen  and (max-width:617px) {    
+
+           //footer part starts here
+    .footer {
+        flex-direction: column;  //items will be displayed vertically
+        height:528px;
+    }
+    .footer ul {
+        margin-bottom: 40px;   //gap between every section
+    }
+
+    #main {
+        padding-bottom: 180px;
+    }
+
+    h4 {
+        display: none;    //social media's name will be disappered
+    }
+    .social-media img {     //instead of names, icons are displayed
+        display: inline-block;    //displayed vertically
+        width:40px;      
+        height:40px;
+        margin-top:10px;     //gap between the icons
+    }
+        //end of footer part
+
+
+    //header part starts here
+
+    nav ul a{
+        font-size: 1rem;  //reduced font size of menu items
+    }
+
+    .logo_container h1 {
+        font-size: 1rem;  // smaller logo at the left
+    }
+
+}
+
+@media only screen and (max-width:441px) {
+
+    nav ul a {
+        font-size: 0.8rem;
+        
+    }
+
+    nav ul {
+        padding-right: 0.5rem;
+        
+    }
+
+    .site_header {
+        
+    }
+    
+}
+

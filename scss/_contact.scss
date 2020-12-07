@@ -1,0 +1,48 @@
+.title  {
+text-transform: uppercase;
+font-size: 2rem;
+margin-bottom: 50px;
+
+}
+
+.tags {    //names of text areas
+    font-weight: bold;
+    margin-right: 50px;
+    
+}
+
+#phone {
+    margin-left: 28px;   //adjust the phone info area to the rest
+}
+
+#name  {
+    margin-left: 27px;  //adjusted the 2 text areas to the left
+}
+#email {
+    margin-left:18px;
+}
+
+
+#contact_btn {
+    background-color: lightgray;
+    margin-top: 30px;
+    padding: 9px;
+    width: 80px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888888;
+}  
+
+#message {
+    min-height: 80px;
+    margin-left: -30px;
+    text-overflow: hidden;
+    overflow-wrap: break-word;
+}
+#name, #email, #phone, #message {
+    width:280px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    
+}
+
+
