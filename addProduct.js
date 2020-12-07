@@ -59,7 +59,26 @@ createdImg.className += "product_img";
     createdDiv.appendChild(createAddToCartBtn);
     createAddToCartBtn.innerText= "Add to cart";
     
-    
+
+    //Create remove-button
+    const createRemoveCartBtn = document.createElement("button");
+    createdDiv.appendChild(createRemoveCartBtn);
+    createRemoveCartBtn.innerText = "Remove product";
+    createRemoveCartBtn.className += "remove_product";
+
+
+
+
+// Remove product
+
+    let removeBtn = document.querySelector(".remove_product");
+     
+    removeBtn.addEventListener("click", removeProduct);
+
+    function removeProduct() {
+
+        createdDiv.remove();
+    }
     
     
     }
@@ -69,3 +88,13 @@ createdImg.className += "product_img";
     const btn_add_product = document.querySelector(".add_product");
     
     btn_add_product.addEventListener("click", addProduct);
+
+    
+
+
+
+
+    
+
+  
+    
