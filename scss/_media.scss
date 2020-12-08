@@ -1,0 +1,34 @@
+@media only screen and (max-width: 540px){
+    .banner-container{
+        background-image:url(/Images/picture2.jpg);
+        opacity:2;
+        
+        
+    }
+    .banner-h1{
+        font-size:2em;
+       margin-bottom:10px;
+       color:white;
+       font-weight: 400;
+       font-weight: bold;
+       
+
+    }
+    h2{
+        font-size:25px;
+        font-weight:400;
+        color:white;
+        
+
+    }
+}
+
+@media only screen and (max-width: 920px){
+    .banner-h1{
+        font-size:3em;
+       margin-bottom:10px;
+      
+       font-weight: 400;
+       font-weight: bold;
+    }
+}
