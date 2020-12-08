@@ -60,14 +60,7 @@ createdImg.className += "product_img";
     createRemoveCartBtn.innerText = "Remove product";
     createRemoveCartBtn.className += "remove_product";
 
-    //Create edit-button
-    const createEditCartBtn = document.createElement("button");
-    createdDiv.appendChild(createEditCartBtn);
-    createEditCartBtn.innerText = "Edit product";
-    createEditCartBtn.className += "edit_product";
-
-
-
+ 
 
 // Remove product
 
@@ -83,20 +76,7 @@ createdImg.className += "product_img";
     
     }
 
-    // edit product
-
-    let editBtn = document.querySelector(".edit_product");
-     
-    editBtn.addEventListener("click", editProduct);
-
-    function editProduct() {
-
-        createdDiv.editProduct();
-    }
-    
-    
-    }
-
+  
 
 
     
