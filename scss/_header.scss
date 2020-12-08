@@ -5,6 +5,8 @@ flex-direction:  row;
 justify-content: space-between;
 align-content: center;
 
+}
+
 .logo_container {
     display: flex;
     flex-direction: row;
@@ -24,11 +26,11 @@ ul {
     padding-bottom: 1rem;
     padding-right: 2rem;
     font-size: 1.5rem;
+}
     
 
 
-.cart 
-    {
+.cart {
         background-color: #FAF050;
     }
 
@@ -36,21 +38,30 @@ ul {
 
 margin-left: 2rem;
 padding: 5px;
+ }
 
 
 a {
     text-decoration: none;
-    color: black;
+    color:black;
 }
 
 span {
     padding-left: 0.5rem;
 }
 
- }
-
-
-
+ul li .submenu{
+    color:blue;
 }
 
-}
+
+
+
+
+ 
+
+
+
+ 
+
+

@@ -121,31 +121,40 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-content: center; }
-  .site_header .logo_container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-    padding-left: 1rem; }
-  .site_header ul {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    list-style-type: none;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-right: 2rem;
-    font-size: 1.5rem; }
-    .site_header ul .cart {
-      background-color: #FAF050; }
-    .site_header ul li {
-      margin-left: 2rem;
-      padding: 5px; }
-      .site_header ul li a {
-        text-decoration: none;
-        color: black; }
-      .site_header ul li span {
-        padding-left: 0.5rem; }
+
+.logo_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  padding-left: 1rem; }
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 2rem;
+  font-size: 1.5rem; }
+
+.cart {
+  background-color: #FAF050; }
+
+li {
+  margin-left: 2rem;
+  padding: 5px; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+span {
+  padding-left: 0.5rem; }
+
+ul li .submenu {
+  color: blue; }
 
 .products {
   display: flex;
@@ -190,9 +199,48 @@ ion-icon {
     font-size: 25px;
     color: green; }
 
+.checkout-btn {
+  background-color: #FAF050;
+  border-style: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 2rem; }
+
+.checkout-btn:hover {
+  background-color: black;
+  color: white; }
+
+.checkoutMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F8F6F2;
+  padding: 40px;
+  margin-top: 50px;
+  margin-right: 10%;
+  margin-left: 10%;
+  color: green; }
+  .checkoutMessage .pdf_btn {
+    background-color: #FAF050;
+    border-style: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 2rem; }
+
 .banner-container {
   background-image: url(/Images/banner1.jpg);
-  height: 65vh;
+  height: 88vh;
   background-position: center;
   /*background-repeat: no-repeat;*/
   background-size: cover;
@@ -214,8 +262,8 @@ h2 {
   margin-top: -5px;
   font-size: 1.7em;
   text-align: center;
-  font-weight: 300;
-  margin-top: px; }
+  font-weight: 450; }
+
 #container {
   min-height: 100%; }
 
@@ -321,7 +369,8 @@ h4 {
     font-size: 0.8rem; }
   nav ul {
     padding-right: 0.5rem; } }
-.checkout-btn {
+
+#submit-field-box {
   background-color: #FAF050;
   border-style: none;
   padding-top: 5px;
@@ -329,33 +378,4 @@ h4 {
   padding-left: 10px;
   padding-right: 10px;
   font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 2rem; }
-
-.checkout-btn:hover {
-  background-color: black;
-  color: white; }
-
-.checkoutMessage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #F8F6F2;
-  padding: 40px;
-  margin-top: 50px;
-  margin-right: 10%;
-  margin-left: 10%;
-  color: green; }
-  .checkoutMessage .pdf_btn {
-    background-color: #FAF050;
-    border-style: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 2rem; }
+  font-weight: 100; }
