@@ -30,9 +30,9 @@ createdImg.src= "bilder/chanel.jpeg";
 createdImg.className += "product_img";
     
     //create H3 for title
-    const createdTitle = document.createElement ("h3");
+    const createdTitle = document.createElement ("input");
     createdDiv.appendChild(createdTitle);
-    createdTitle.innerText= productName;
+    createdTitle.value= productName;
     createdTitle.className += "product_name";
     
     //create p for description
@@ -52,6 +52,9 @@ createdImg.className += "product_img";
     const createAddToCartBtn = document.createElement("button");
     createdDiv.appendChild(createAddToCartBtn);
     createAddToCartBtn.innerText= "Add to cart";
+    //set att m prod ID
+
+    //createAddToCartBtn.setAttribute ("id", "product_price")
     
 
     //Create remove-button
@@ -63,7 +66,22 @@ createdImg.className += "product_img";
 
 
 
-// Remove product
+    /*
+    for (var i = 0; i < createRemoveCartBtn.length; i++) {
+        var button = createRemoveCartBtn[i]
+        button.addEventListener("click", function(event) {
+            var buttonClicked = event.target
+            buttonClicked.parentElement.remove()
+        })
+    }
+
+ */
+    
+ //FÖr varje produkt skapar local storage
+ // Lägg till fält som heter ID
+
+
+// Remove product (but this erases all the created divs)
 
     let removeBtn = document.querySelector(".remove_product");
      
@@ -71,10 +89,114 @@ createdImg.className += "product_img";
 
     function removeProduct() {
 
-        createdDiv.remove();
+        createdDiv.remove(); //how to erase only that particular product card?
     }
+   
+
+
+//Create edit button
+    let createEditProdBtn = document.createElement("button");
+    createdDiv.appendChild(createEditProdBtn);
+    createEditProdBtn.innerText = "Edit product";
+    createEditProdBtn.className += "edit_product";
     
-    
+    let editBtn = document.querySelector(".edit_product");
+
+    editBtn.addEventListener("click", editProduct);
+
+
+    //Create Edit Inputs-  How to only do this once? Now this shows up everytime there is a click
+
+    function editProduct() {
+        
+        //Edit Title
+
+        const createdInputTitle = document.createElement("input");
+        createdDiv.appendChild(createdInputTitle);
+        createdInputTitle.innerText = "Edit Title";
+        createdInputTitle.className = "edit_title";
+
+        let editTitleBtn = document.createElement("button");
+        createdDiv.appendChild(editTitleBtn);
+        editTitleBtn.innerText = "Edit Title Button";
+        editTitleBtn.className = "edit_title_btn";
+
+       /*  var element = document.getElementsByClassName(edit_title);
+        var event = new Event ('change');
+        element.dispatchEvent(event); */
+ 
+        
+        
+        //editTitleBtn.addEventListener("click", function replaceTitle (){
+          //  const event = document.querySelectorbyClassName(".product_name"); });
+
+     
+
+        //Next is slice????
+
+        //__________________________________________
+
+
+        //Edit Description
+
+        const createdInputDesc = document.createElement("input");
+        createdDiv.appendChild(createdInputDesc);
+        createdInputDesc.innerText = "Edit Desc";
+        createdInputDesc.className = "edit_desc";
+
+        let editDescBtn = document.createElement("button");
+        createdDiv.appendChild(editDescBtn);
+        editDescBtn.innerText = "Edit Desc Button";
+        editDescBtn.className = "edit_desc_btn";
+
+        // editDescBtn.addEventListener("click", ".edit_desc");
+
+       // let newDescBtn = document.querySelector(.submit_new_title);
+       // newTitleBtn.addEventListener("click", ???)
+
+        //Next is slice????
+
+
+
+        //----------------------------------------
+
+        //Edit Price
+
+        const createdInputPrice = document.createElement("input");
+        createdDiv.appendChild(createdInputPrice);
+        createdInputPrice.innerText = "Edit Price";
+        createdInputPrice.className = "edit_price";
+
+        let editPriceBtn = document.createElement("button");
+        createdDiv.appendChild(editPriceBtn);
+        editPriceBtn.innerText = "Edit Price Button";
+        editPriceBtn.className = "edit_price_btn";
+
+        editPriceBtn.addEventListener("click", ".edit_price");
+
+       // let newPriceBtn = document.querySelector(.??);
+       // newTitleBtn.addEventListener("click", ???)
+
+        //Next is slice????
+
+
+
+        //-------------------------------------
+
+        
+        //Below to run above code block only once????????
+
+        //var exec=true;function display() {if(exec){alert("test");exec=false;}}
+       
+
+
+    }
+
+   
+
+
+
+
     }
     
     // Added event listner
@@ -91,6 +213,7 @@ images[1] = "/Users/nicklassegerdahl/REPOS/gruppuppgift/Images/picture2.jpg";
 images[2] = "/Users/nicklassegerdahl/REPOS/gruppuppgift/Images/picture3.jpg";
 index = Math.floor(Math.random() * images.length);
 document.write(images[index]);
+
 
 
 //done
