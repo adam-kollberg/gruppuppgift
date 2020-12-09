@@ -138,7 +138,7 @@ function displayCart() {
     Object.values(cartItems).map(item => {
       productContainer.innerHTML += `
   <div class="product">
-  <ion-icon name="close-circle-outline"></ion-icon>
+  <ion-icon class="delete_btn" name="close-circle-outline"></ion-icon>
   <img src="./bilder/${item.description}.jpeg">
   <div class = cart-product-wrapper>
   <h5>Produktnamn:</h5>
@@ -198,7 +198,7 @@ const pdf = new jsPDF();
   
   function savePDF() {
   
-    pdf.text(10, 10, ` You have to pay: ${cartCost} ${cartItems.map}  ` );
+    pdf.text(10, 10, `Totalt att betala: ${cartCost}   ` );
     pdf.save("Kvitto.pdf");
   }
   
@@ -206,10 +206,9 @@ const pdf = new jsPDF();
 
   }
 
-console.log (cartItems);
+
   
-  
-  
+ 
 
 }
 onLoadCartNumbers()
