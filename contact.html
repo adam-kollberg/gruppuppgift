@@ -53,49 +53,41 @@
         
        
   
-          <div class="contact-form">
+      <div class="contact-form">
 
-            <div id = "error_message">  </div>   <!--error message will be displayed here-->
+        
             
-            <form>
-              <h3 class="title">Kontakta Oss</h3>
-              <div class="input-container">
-                <span class = "tags">Anledning att kontakta:</span> <select id="reason">
-                <option value="callBack">Begär ett samtal tillbaka</option>
-                <option value="feedback">Respons</option>
-                <option value="returnProduct">Produkt skadad / Retur</option>
-                <option value="other">Övrig</option>
-              </select>
+        <form action = "https://formspree.io/f/mzbkjgek" method ="POST"> 
+          
+          <h3 class="title">Kontakta Oss</h3>
+          
 
-              </div>
-
-              <div class="input-container">
-                <span class = "tags">NAMN:</span> <input type="text" name="name" id="name"  required /> 
-              
-              </div>
-              <div class="input-container">
-               <span class = "tags">E-POST:</span> <input type="email" name="email" id="email" required />
-              
-              </div>
-              <div class="input-container">
-                <span class = "tags">MOBIL:</span><input type="tel" name="phone" id="phone" required />
-              
-              </div>
-              <div class="input-container">
-                <span class = "tags">MEDDELANDE:</span><input type = "text" id="message" required />
-                
-              </div>
-              <input type="submit" value="Submit" id = "contact_btn">
-            </form>
+          <div class="input-container">
+            <span class = "tags">NAMN:</span> <input type="text" name="name" id="name" required/> 
+          
           </div>
+          <div class="input-container">
+           <span class = "tags">E-POST:</span> <input type="email" name="email" id="email" required />
+          
+          </div>
+          <div class="input-container">
+            <span class = "tags">MOBIL:</span><input type="tel" name="phone" id="phone"  required/>
+          
+          </div>
+          <div class="input-container">
+            <span class = "tags">MEDDELANDE:</span><input type = "text" name = "message "id="message"  required/>
+            
+          </div>
+          <input type="submit" value="Submit" id = "contact_btn">
+        </form>
+      </div>
         </div>
       </div>
   
       
       
       
-      </div>
-      </div>
+      
       
       <footer class= "footer">
            
