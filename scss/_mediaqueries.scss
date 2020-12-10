@@ -37,23 +37,6 @@
 
 }
 
-@media only screen and (max-width:441px) {
-
-    nav ul a {
-        font-size: 0.8rem;
-        
-    }
-
-    nav ul {
-        padding-right: 0.5rem;
-        
-    }
-
-    .site_header {
-        
-    }
-    
-}
 
 @media only screen and (max-width: 700px) {  //header part (menu burger)
 
@@ -113,4 +96,35 @@
 
     }
 
+} 
+
+//contact form starts here
+
+@media only screen and (max-width: 850px) {
+
+
+    #name, #email, #phone, #message {
+     width: 40vw;
+     margin-left: 35px;
+
+    }
 }
+
+@media only screen and (max-width: 698px) {
+
+.title {
+    font-size: 1.5rem;
+}
+}
+@media only screen and (max-width: 390px) {
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .tags {
+        font-size: 0.7rem;
+    }
+}
+
+// end of contact form

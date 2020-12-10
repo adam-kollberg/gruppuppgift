@@ -365,12 +365,6 @@ h4 {
   .logo_container h1 {
     font-size: 1rem; } }
 
-@media only screen and (max-width: 441px) {
-  nav ul a {
-    font-size: 0.8rem; }
-  nav ul {
-    padding-right: 0.5rem; } }
-
 @media only screen and (max-width: 700px) {
   label {
     display: block;
@@ -389,6 +383,21 @@ h4 {
     border-top: 2px solid gray; }
   #toggle:checked + .menu {
     display: block; } }
+
+@media only screen and (max-width: 850px) {
+  #name, #email, #phone, #message {
+    width: 40vw;
+    margin-left: 35px; } }
+
+@media only screen and (max-width: 698px) {
+  .title {
+    font-size: 1.5rem; } }
+
+@media only screen and (max-width: 390px) {
+  .title {
+    font-size: 1rem; }
+  .tags {
+    font-size: 0.7rem; } }
 
 #submit-field-box {
   background-color: #FAF050;
