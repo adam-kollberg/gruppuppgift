@@ -55,3 +55,62 @@
     
 }
 
+@media only screen and (max-width: 700px) {  //header part (menu burger)
+
+    
+
+    label {
+
+        display: block;
+
+        cursor: pointer;
+
+    }
+
+
+
+    .menu {
+
+        text-align: center;
+
+        width: 100%;
+
+        display: none;
+
+    }
+
+
+
+    .menu a {
+
+        display: block;
+
+        border-bottom: 2px solid gray;
+
+     
+
+        margin: 0;
+
+        position: relative;
+
+        z-index: 50;
+
+        
+
+    }
+
+     .menu a:nth-child(1) {
+
+        border-top: 2px solid gray;
+
+    }
+
+
+
+     #toggle:checked +.menu {
+
+        display: block;
+
+    }
+
+}
