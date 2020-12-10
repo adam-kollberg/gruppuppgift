@@ -196,9 +196,15 @@ const pdf = new jsPDF();
   
   
   function savePDF() {
-  
-    pdf.text(10, 10, ` You have to pay: ${cartCost} ${cartItems.map}  ` );
+     
+
+
+    pdf.setFontSize(40)
+    pdf.text(40, 20, `Tack för ditt köp `)
+    pdf.text(40, 40, `Totalt att betala: ${cartCost},00 kr  `)
+    
     pdf.save("Kvitto.pdf");
+    
   }
   
   pdfBtn.addEventListener("click", savePDF);
