@@ -116,7 +116,29 @@ body {
   min-height: 100%; }
 
 .site_header {
+  border-bottom: 1px solid #EAEAEB;
+  text-align: right;
+  height: 70px;
+  line-height: 70px;
+  background-color: #F8F6F2; }
+
+span {
+  padding-left: 0.5rem; }
+
+.logo_container {
+  position: absolute;
+  margin-left: 20px; }
+
+.cart {
+  background-color: #FAF050; }
+
+.menu {
+  margin: 0 30px 0 0; }
+
+.menu a {
+  line-height: 70px;
   background-color: #F8F6F2;
+<<<<<<< HEAD
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -155,6 +177,25 @@ span {
 
 ul li .submenu {
   color: blue; }
+=======
+  font-size: 1.5rem;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: bold;
+  color: black; }
+
+.menu a:hover {
+  color: blue; }
+
+label {
+  margin: 0 40px 0 0;
+  font-size: 26px;
+  line-height: 70px;
+  display: none; }
+
+#toggle {
+  display: none; }
+>>>>>>> 0b277085b8f0c521d38995d371a8bace27686c17
 
 .products {
   display: flex;
@@ -265,7 +306,7 @@ h2 {
   font-weight: 450; }
 
 #container {
-  min-height: 100%; }
+  min-height: 100vh; }
 
 #main {
   overflow: auto;
@@ -370,6 +411,25 @@ h4 {
   nav ul {
     padding-right: 0.5rem; } }
 
+@media only screen and (max-width: 700px) {
+  label {
+    display: block;
+    cursor: pointer; }
+  .menu {
+    text-align: center;
+    width: 100%;
+    display: none; }
+  .menu a {
+    display: block;
+    border-bottom: 2px solid gray;
+    margin: 0;
+    position: relative;
+    z-index: 50; }
+  .menu a:nth-child(1) {
+    border-top: 2px solid gray; }
+  #toggle:checked + .menu {
+    display: block; } }
+
 #submit-field-box {
   background-color: #FAF050;
   border-style: none;
@@ -409,3 +469,4 @@ h4 {
     margin-top: 2rem; }
 
 
+  

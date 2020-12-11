@@ -11,40 +11,32 @@
     <title>E-commerce grupp</title>
 </head>
 <body>
-    <header class="site_header">
-        <div class="logo_container">
-        <h1>SHOP</h1>
-        </div>
-        
-        
-        
-        <nav>
-          <ul>
-        <li><a href = "index.html"><ion-icon name="home-outline"></ion-icon>Hem</a> </li>
-        
-        
-        <li class = "add_product_nav">
-          <a href = "addproduct.html">
-            <ion-icon name="add-circle-outline"></ion-icon>Add product
-        
-          
-          </a> 
-        </li>
-        
-        
-       <!-- <li class = "cart">
-            <a href = "cart.html">
-                <ion-icon name= "basket"></ion-icon>Cart<span>0</span>-->
-        
-            
-            </a> 
-        </li>
-        
-        
 
-          </ul>
-        </nav>
-        </header>
+  <div id = "container">
+
+    <div id = "main">
+
+  <header class="site_header">
+    <div class="logo_container">
+    <h1>SHOP</h1>
+    </div>
+    
+    <label for = "toggle">&#9776;</label>
+            <input type = "checkbox" id = "toggle" />
+    
+    <div class ="menu">
+    
+       <a href = "index.html"><ion-icon name="home-outline"></ion-icon>Hem</a>
+       <a href = "addproduct.html">
+        <ion-icon name="add-circle-outline"></ion-icon>Add product</a> 
+       <a class = "cart" href = "cart.html">
+            <ion-icon name= "basket"></ion-icon>Cart<span>0</span></a> 
+      <a href = "login.html">Login</a> 
+    
+    
+    </div>
+      
+    </header>
 
        
 
@@ -73,6 +65,42 @@
 </div>
 
 </main>
+
+</div>
+</div>
+
+<footer class= "footer">
+     
+  <div class = "quick-links">
+    <h3>SNABB LÄNKAR</h3>
+    <ul>
+    <li><a href = "index.html">Hem</a></li>
+    <li><a href = "addproduct.html">Add Product</a></li>
+    <li><a href = "contact.html">Kontakta Oss</a> </li>
+  </ul>
+  </div>
+
+  <div class = "download-apps">
+    <h3>INSTALLERA VÅRA APPAR</h3>
+    <ul>
+    <li> <a href = "https://www.apple.com"> <img src = "bilder/apple-logo.png" alt = "apple app logo"> </a> </li>
+    <li> <a href = "https://play.google.com/store"> <img src = "bilder/google-logo.png" alt = "google app logo"></a></li>
+  </ul>
+  </div>
+
+  <div class = "social-media">
+    <h3>FÖLJ OSS PÅ</h3>
+    <ul>
+    <li> <a href = "https://www.facebook.com/"><h4>Facebook</h4><img src = "bilder/facebook.jpg"></a></li>
+    <li> <a href = "https://www.instagram.com/"><h4>Instagram</h4><img src = "bilder/instagram.webp"></a></li>
+    <li> <a href = "https://twitter.com/"><h4>Twitter</h4><img src= "bilder/twitter.png"></a></li>
+  </ul>
+</div>
+
+</footer>
+
+
+
 
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>    
 </body>
