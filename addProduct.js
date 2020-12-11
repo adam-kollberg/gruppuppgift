@@ -90,117 +90,9 @@ createdImg.className += "product_img";
 
         createdDiv.remove(); //how to erase only that particular product card?
     }
-   
 
 
-//Create edit button
-    let createEditProdBtn = document.createElement("button");
-    createdDiv.appendChild(createEditProdBtn);
-    createEditProdBtn.innerText = "Edit product";
-    createEditProdBtn.className += "edit_product";
-    
-    let editBtn = document.querySelector(".edit_product");
-
-    editBtn.addEventListener("click", editProduct);
-
-
-    //Create Edit Inputs-  How to only do this once? Now this shows up everytime there is a click
-
-    function editProduct() {
-        
-        //Edit Title
-
-        const createdInputTitle = document.createElement("input");
-        createdDiv.appendChild(createdInputTitle);
-        createdInputTitle.innerText = "Edit Title";
-        createdInputTitle.className = "edit_title";
-
-        let editTitleBtn = document.createElement("button");
-        createdDiv.appendChild(editTitleBtn);
-        editTitleBtn.innerText = "Edit Title Button";
-        editTitleBtn.className = "edit_title_btn";
-
-       /*  var element = document.getElementsByClassName(edit_title);
-        var event = new Event ('change');
-        element.dispatchEvent(event); */
- 
-        
-        
-        //editTitleBtn.addEventListener("click", function replaceTitle (){
-          //  const event = document.querySelectorbyClassName(".product_name"); });
-
-     
-
-        //Next is slice????
-
-        //__________________________________________
-
-
-        //Edit Description
-
-        const createdInputDesc = document.createElement("input");
-        createdDiv.appendChild(createdInputDesc);
-        createdInputDesc.innerText = "Edit Desc";
-        createdInputDesc.className = "edit_desc";
-
-        let editDescBtn = document.createElement("button");
-        createdDiv.appendChild(editDescBtn);
-        editDescBtn.innerText = "Edit Desc Button";
-        editDescBtn.className = "edit_desc_btn";
-
-        // editDescBtn.addEventListener("click", ".edit_desc");
-
-       // let newDescBtn = document.querySelector(.submit_new_title);
-       // newTitleBtn.addEventListener("click", ???)
-
-        //Next is slice????
-
-
-
-        //----------------------------------------
-
-        //Edit Price
-
-        const createdInputPrice = document.createElement("input");
-        createdDiv.appendChild(createdInputPrice);
-        createdInputPrice.innerText = "Edit Price";
-        createdInputPrice.className = "edit_price";
-
-        let editPriceBtn = document.createElement("button");
-        createdDiv.appendChild(editPriceBtn);
-        editPriceBtn.innerText = "Edit Price Button";
-        editPriceBtn.className = "edit_price_btn";
-
-        editPriceBtn.addEventListener("click", ".edit_price");
-
-       // let newPriceBtn = document.querySelector(.??);
-       // newTitleBtn.addEventListener("click", ???)
-
-        //Next is slice????
-
-
-
-        //-------------------------------------
-
-        
-        //Below to run above code block only once????????
-
-        //var exec=true;function display() {if(exec){alert("test");exec=false;}}
-       
-
-
-    }
-
-   
-
-
-
-
-    }
-
-  
-
-
+}
     
     // Added event listner
     
@@ -237,15 +129,3 @@ document.write(images[index]);
     
  */
 
-
-    /* function loadimg() {
-        const file = document.getElementById('file').files[0];
-        const reader  = new FileReader();
-        reader.onload = function(e)  {
-            const image = document.createElement("img");
-            image.src = e.target.result;
-            document.body.appendChild(image);
-         }
-         reader.readAsDataSrc(file);  
-        }  
-          */

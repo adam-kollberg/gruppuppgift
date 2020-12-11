@@ -1,7 +1,5 @@
 .site_header {
 
-}
-
 .logo_container {
     display: flex;
     flex-direction: row;
@@ -31,33 +29,11 @@ ul {
     padding-bottom: 1rem;
     padding-right: 2rem;
     font-size: 1.5rem;
-}
     
 
 
-
-span {
-
-    padding-left: 0.5rem;
-
-}
-
-
-
-.logo_container {
-
-    position: absolute;
-
-    margin-left: 20px;
-
-}
-
-
-
 .cart 
-
     {
-
         background-color: #FAF050;
 
     
@@ -65,7 +41,6 @@ span {
 
 margin-left: 2rem;
 padding: 5px;
- }
 
 .menu {
 
@@ -75,7 +50,7 @@ padding: 5px;
 
 a {
     text-decoration: none;
-    color:black;
+    color: black;
 }
 
 .menu a {
@@ -96,41 +71,10 @@ a {
 
 }
 
-
-
- .menu a:hover {
-
-     color: blue;
-
-
-
  }
 
 
 
-label {
-
-    margin: 0 40px 0 0; //space from the right
-
-    font-size: 26px;
-
-    line-height: 70px;
-
-    display: none;
-
-    
-
 }
 
-
-
-#toggle {
-
-    display: none;
-
 }
-
-
-
-
-

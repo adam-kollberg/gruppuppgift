@@ -143,6 +143,7 @@ span {
   flex-direction: row;
   justify-content: space-between;
   align-content: center; }
+<<<<<<< HEAD
 
 .logo_container {
   display: flex;
@@ -196,6 +197,33 @@ label {
 #toggle {
   display: none; }
 >>>>>>> 0b277085b8f0c521d38995d371a8bace27686c17
+=======
+  .site_header .logo_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding-left: 1rem; }
+  .site_header ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style-type: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    font-size: 1.5rem; }
+    .site_header ul .cart {
+      background-color: #FAF050; }
+    .site_header ul li {
+      margin-left: 2rem;
+      padding: 5px; }
+      .site_header ul li a {
+        text-decoration: none;
+        color: black; }
+      .site_header ul li span {
+        padding-left: 0.5rem; }
+>>>>>>> parent of 7e7bdcd... new link to login
 
 .products {
   display: flex;
@@ -240,48 +268,13 @@ ion-icon {
     font-size: 25px;
     color: green; }
 
-.checkout-btn {
-  background-color: #FAF050;
-  border-style: none;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 2rem; }
-
-.checkout-btn:hover {
-  background-color: black;
-  color: white; }
-
-.checkoutMessage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #F8F6F2;
-  padding: 40px;
-  margin-top: 50px;
-  margin-right: 10%;
-  margin-left: 10%;
-  color: green; }
-  .checkoutMessage .pdf_btn {
-    background-color: #FAF050;
-    border-style: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 2rem; }
-
 .banner-container {
   background-image: url(/Images/banner1.jpg);
+<<<<<<< HEAD
   height: 70vh;
+=======
+  height: 65vh;
+>>>>>>> parent of 7e7bdcd... new link to login
   background-position: center;
   /*background-repeat: no-repeat;*/
   background-size: cover;
@@ -303,8 +296,8 @@ h2 {
   margin-top: -5px;
   font-size: 1.7em;
   text-align: center;
-  font-weight: 450; }
-
+  font-weight: 300;
+  margin-top: px; }
 #container {
   min-height: 100vh; }
 
@@ -410,6 +403,7 @@ h4 {
     font-size: 0.8rem; }
   nav ul {
     padding-right: 0.5rem; } }
+<<<<<<< HEAD
 
 @media only screen and (max-width: 700px) {
   label {
@@ -431,6 +425,9 @@ h4 {
     display: block; } }
 
 #submit-field-box {
+=======
+.checkout-btn {
+>>>>>>> parent of 7e7bdcd... new link to login
   background-color: #FAF050;
   border-style: none;
   padding-top: 5px;
@@ -438,8 +435,14 @@ h4 {
   padding-left: 10px;
   padding-right: 10px;
   font-size: 16px;
+<<<<<<< HEAD
   font-weight: 100; }
   
+=======
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 2rem; }
+>>>>>>> parent of 7e7bdcd... new link to login
 
 .checkout-btn:hover {
   background-color: black;
@@ -467,6 +470,9 @@ h4 {
     font-weight: 700;
     cursor: pointer;
     margin-top: 2rem; }
+<<<<<<< HEAD
 
 
   
+=======
+>>>>>>> parent of 7e7bdcd... new link to login
