@@ -15,87 +15,67 @@
           <div id = "main">
         
       
-      <header class="site_header">
-      <div class="logo_container">
-      <h1>SHOP</h1>
-      </div>
-      
-      <nav>
-        
-        <ul>
-      <li><a href = "index.html"><ion-icon name="home-outline"></ion-icon>Hem</a> </li>
-      
-      
-      <li class = "add_product_nav">
-        <a href = "addproduct.html">
-          <ion-icon name="add-circle-outline"></ion-icon>Add product
-      
-        
-        </a> 
-      </li>
-      
-      
-      <li class = "cart">
-          <a href = "cart.html">
-              <ion-icon name= "basket"></ion-icon>Cart<span>0</span>
-      
-          
-          </a> 
-      </li>
-      
-      
-      
-        </ul>
-      </nav>
-      </header>
+            <header class="site_header">
+              <div class="logo_container">
+              <h1>SHOP</h1>
+              </div>
+              
+              <label for = "toggle">&#9776;</label>
+                      <input type = "checkbox" id = "toggle" />
+              
+              <div class ="menu">
+              
+                 <a href = "index.html"><ion-icon name="home-outline"></ion-icon>Hem</a>
+                 <a href = "addproduct.html">
+                  <ion-icon name="add-circle-outline"></ion-icon>Add product</a> 
+                 <a class = "cart" href = "cart.html">
+                      <ion-icon name= "basket"></ion-icon>Cart<span>0</span></a> 
+                <a href = "login.html">Login</a> 
+              
+              
+              </div>
+                
+              </header>
 
     
         
        
   
-          <div class="contact-form">
+      <div class="contact-form">
 
-            <div id = "error_message">  </div>   <!--error message will be displayed here-->
+        
             
-            <form>
-              <h3 class="title">Kontakta Oss</h3>
-              <div class="input-container">
-                <span class = "tags">Anledning att kontakta:</span> <select id="reason">
-                <option value="callBack">Begär ett samtal tillbaka</option>
-                <option value="feedback">Respons</option>
-                <option value="returnProduct">Produkt skadad / Retur</option>
-                <option value="other">Övrig</option>
-              </select>
+        <form action = "https://formspree.io/f/mzbkjgek" method ="POST"> 
+          
+          <h3 class="title">Kontakta Oss</h3>
+          
 
-              </div>
-
-              <div class="input-container">
-                <span class = "tags">NAMN:</span> <input type="text" name="name" id="name"  required /> 
-              
-              </div>
-              <div class="input-container">
-               <span class = "tags">E-POST:</span> <input type="email" name="email" id="email" required />
-              
-              </div>
-              <div class="input-container">
-                <span class = "tags">MOBIL:</span><input type="tel" name="phone" id="phone" required />
-              
-              </div>
-              <div class="input-container">
-                <span class = "tags">MEDDELANDE:</span><input type = "text" id="message" required />
-                
-              </div>
-              <input type="submit" value="Submit" id = "contact_btn">
-            </form>
+          <div class="input-container">
+            <span class = "tags">NAMN:</span> <input type="text" name="NAMN" id="name" required/> 
+          
           </div>
+          <div class="input-container">
+           <span class = "tags">E-POST:</span> <input type="email" name="E-POST" id="email" required />
+          
+          </div>
+          <div class="input-container">
+            <span class = "tags">MOBIL:</span><input type="tel" name="MOBIL" id="phone"  required/>
+          
+          </div>
+          <div class="input-container">
+            <span class = "tags">MEDDELANDE:</span><input type = "text" name ="MEDDELANDE"id="message"  required/>
+            
+          </div>
+          <input type="submit" value="Submit" id = "contact_btn">
+        </form>
+      </div>
         </div>
       </div>
   
       
       
       
-      </div>
-      </div>
+      
       
       <footer class= "footer">
            
@@ -104,7 +84,7 @@
           <ul>
           <li><a href = "index.html">Hem</a></li>
           <li><a href = "addproduct.html">Add Product</a></li>
-          <li><a href = "contact.html">Konkakta Oss</a> </li>
+          <li><a href = "contact.html">Kontakta Oss</a> </li>
         </ul>
         </div>
       

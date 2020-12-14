@@ -1,12 +1,11 @@
-
-
 const addProductBtn = document.querySelector(".add_product")
 
 addProductBtn.addEventListener("click", passProducts);
 
+
+
+
 let products = []
-
-
 
 function passProducts(e) { 
 let productObject = {}  
@@ -28,6 +27,4 @@ const existingData = JSON.parse(localData);
 
 const cleanedData = existingData ?  existingData.concat(products) : products;
 
-localStorage.setItem("produkt", JSON.stringify(cleanedData));
-
-}
+localStorage.setItem("produkt", JSON.stringify(cleanedData))};

@@ -3,7 +3,7 @@
            //footer part starts here
     .footer {
         flex-direction: column;  //items will be displayed vertically
-        height:528px;
+        height:535px;
     }
     .footer ul {
         margin-bottom: 40px;   //gap between every section
@@ -37,21 +37,94 @@
 
 }
 
-@media only screen and (max-width:441px) {
 
-    nav ul a {
-        font-size: 0.8rem;
-        
-    }
+@media only screen and (max-width: 700px) {  //header part (menu burger)
 
-    nav ul {
-        padding-right: 0.5rem;
-        
-    }
-
-    .site_header {
-        
-    }
     
+
+    label {
+
+        display: block;
+
+        cursor: pointer;
+
+    }
+
+
+
+    .menu {
+
+        text-align: center;
+
+        width: 100%;
+
+        display: none;
+
+    }
+
+
+
+    .menu a {
+
+        display: block;
+
+        border-bottom: 2px solid gray;
+
+     
+
+        margin: 0;
+
+        position: relative;
+
+        z-index: 50;
+
+        
+
+    }
+
+     .menu a:nth-child(1) {
+
+        border-top: 2px solid gray;
+
+    }
+
+
+
+     #toggle:checked +.menu {
+
+        display: block;
+
+    }
+
+} 
+
+//contact form starts here
+
+@media only screen and (max-width: 850px) {
+
+
+    #name, #email, #phone, #message {
+     width: 40vw;
+     margin-left: 35px;
+
+    }
 }
 
+@media only screen and (max-width: 698px) {
+
+.title {
+    font-size: 1.5rem;
+}
+}
+@media only screen and (max-width: 390px) {
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .tags {
+        font-size: 0.7rem;
+    }
+}
+
+// end of contact form
