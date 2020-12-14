@@ -18,7 +18,7 @@ form {
     border-style: none;
     padding: 10px;
     color: black; }
-  form button {
+  form .productBtn {
     background-color: #FAF050;
     border-style: none;
     padding-top: 5px;
