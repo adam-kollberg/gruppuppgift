@@ -3,21 +3,22 @@ const addProductBtn = document.querySelector(".add_product")
 addProductBtn.addEventListener("click", passProducts);
 
 
-
-
 let products = []
 
 function passProducts(e) { 
+e.preventDefault()
 let productObject = {}  
   
 const productName = document.querySelector("#product_name").value;
 const productDescription = document.querySelector("#product_description").value;
 const productPrice = document.querySelector("#product_price").value;
+const productId = document.querySelector("#product_id").value;
 
 
 productObject.name = productName;
 productObject.description = productDescription;
-productObject.price = productPrice;
+productObject.price = parseInt (productPrice);
+productObject.id =  parseInt(productId);
 
 
 products.push(productObject);
@@ -27,4 +28,15 @@ const existingData = JSON.parse(localData);
 
 const cleanedData = existingData ?  existingData.concat(products) : products;
 
-localStorage.setItem("produkt", JSON.stringify(cleanedData))};
+localStorage.setItem("produkt", JSON.stringify(cleanedData))
+
+
+console.log(productObject.price);
+
+};
+
+
+const dataFromLocal = localStorage.getItem("produkt")
+
+const parsedData = JSON.parse(dataFromLocal)
+
