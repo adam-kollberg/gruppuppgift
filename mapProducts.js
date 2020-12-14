@@ -99,9 +99,23 @@ for (let i = 0; i < carts.length; i++) {
   
   }
 
-  
+  let itemsInCart = localStorage.getItem("cartNumbers");
 
- 
+  for (let i = 0; i<parsedData.length; i++) {
+    let productPrice = parsedData[i].price;
+
+    console.log(productPrice);
+    let total = itemsInCart * productPrice;
+
+    console.log(total);
+
+
+
+    localStorage.setItem("totalCost", total);
+
+    
+  
+  }
   
   
  

@@ -4,21 +4,7 @@ const parsedData = JSON.parse(dataFromLocal);
 
 let itemsInCart = localStorage.getItem("cartNumbers");
     
-    for (let i = 0; i<parsedData.length; i++) {
-    let productPrice = parsedData[i].price;
-
-    console.log(productPrice);
-    let total = itemsInCart * productPrice;
-
-    console.log(total);
-
-
-
-    localStorage.setItem("totalCost", total);
-
-    
-  
-  }
+ 
   
   
   function displayCart() {
@@ -44,12 +30,7 @@ let itemsInCart = localStorage.getItem("cartNumbers");
     
     <span><h5>Pris:</h5>${item.price},00kr</span>
     
-    <div class = "quantity">
     
-    
-    <span><h5>Antal:</h5> <ion-icon name="chevron-back-outline"></ion-icon>${productInCart}</span>
-    <ion-icon name="chevron-forward-outline"></ion-icon>
-    </div>
     </div>
     </div>
     
