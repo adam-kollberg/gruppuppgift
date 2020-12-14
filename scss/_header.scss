@@ -1,4 +1,4 @@
-.site_header {
+.site_header {}
 
 .logo_container {
     display: flex;
@@ -41,6 +41,7 @@ ul {
 
 margin-left: 2rem;
 padding: 5px;
+    }
 
 .menu {
 
@@ -71,10 +72,15 @@ a {
 
 }
 
+
+
+ .menu a:hover {
+
+     color: white;
+
  }
 
 
 
 }
 
-}
