@@ -6,6 +6,7 @@ parsedData.map( productObject => {
 const productContainer = document.querySelector(".added_product_container");
 
 
+
 const productWrapper = document.createElement ("div");
 productContainer.appendChild(productWrapper);
 productWrapper.className += "added_product_wrapper";
