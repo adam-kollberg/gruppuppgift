@@ -148,7 +148,7 @@ span {
   color: black; }
 
 .menu a:hover {
-  color: blue; }
+  color: white; }
 
 label {
   margin: 0 40px 0 0;
@@ -284,7 +284,8 @@ h2 {
   margin-top: -100px;
   bottom: 0%;
   clear: both;
-  background-color: lightgray; }
+  background-color: lightgray;
+  width: 100%; }
 
 .footer img {
   width: 120px;
