@@ -19,6 +19,8 @@
   "homepage": "https://github.com/adam-kollberg/gruppuppgift#readme",
   "dependencies": {
     "jspdf": "^2.1.1",
-    "node-sass": "^5.0.0"
+    "node": "^15.4.0",
+    "node-sass": "^5.0.0",
+    "sass": "^1.30.0"
   }
 }
