@@ -8,12 +8,16 @@ let products = []
 
 function passProducts(e) { 
 let productObject = {}  
-  
+
+
+ 
 const productName = document.querySelector("#product_name").value;
 const productDescription = document.querySelector("#product_description").value;
 const productPrice = document.querySelector("#product_price").value;
 
 
+
+productObject.image = "https://source.unsplash.com/random/";
 productObject.name = productName;
 productObject.description = productDescription;
 productObject.price = productPrice;
