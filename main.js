@@ -1,4 +1,4 @@
-// add to cart button
+
 let carts = document.querySelectorAll(".single_product_btn");
 
 const products = [
@@ -143,6 +143,7 @@ function displayCart() {
   <h5>Produktnamn:</h5>
   <span>${item.name}</span>
   
+  
   <span><h5>Pris:</h5>${item.price},00kr</span>
   
   <div class = "quantity">
@@ -177,7 +178,7 @@ function displayCart() {
   
 let checkOutBtn = document.querySelector(".checkout-btn");
 let checkoutMessageContainer = document.querySelector(".checkout_message")
-  checkOutBtn.addEventListener("click", checkoutNow)
+checkOutBtn.addEventListener("click", checkoutNow)
 
 
   function checkoutNow() {
@@ -203,6 +204,7 @@ const pdf = new jsPDF();
     pdf.text(40, 20, `Tack för ditt köp `)
     pdf.text(40, 40, `Totalt att betala: ${cartCost},00 kr  `)
     
+    
     pdf.save("Kvitto.pdf");
     
   }
@@ -211,19 +213,32 @@ const pdf = new jsPDF();
 
   }
 
-console.log (cartItems);
+
   
   
   
 
 }
+
+
 onLoadCartNumbers()
 displayCart()
 
 
 
 
+let productName = document.querySelector("#product_name").value;
+let productDescription = document.querySelector("#product_description").value;
+let productPrice = document.querySelector("#product_price").value;
 
 
+let addProductBtn = document.querySelector(".add_product")
 
+addProductBtn.addEventListener("click", AddProduct)
+
+function addProduct () {
+console.log(productName);
+  
+
+}
 

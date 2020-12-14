@@ -2,7 +2,7 @@
   "name": "gruppinlamning",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "node-sass scss/main.scss css/style.css -w"
@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/adam-kollberg/gruppuppgift#readme",
   "dependencies": {
-    "jspdf": "^2.1.1",
-    "node-sass": "^5.0.0"
+    "node": "^15.3.0",
+    "node-sass": "^5.0.0",
+    "sass": "^1.30.0"
   }
 }

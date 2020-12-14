@@ -190,6 +190,45 @@ ion-icon {
     font-size: 25px;
     color: green; }
 
+.checkout-btn {
+  background-color: #FAF050;
+  border-style: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 2rem; }
+
+.checkout-btn:hover {
+  background-color: black;
+  color: white; }
+
+.checkoutMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F8F6F2;
+  padding: 40px;
+  margin-top: 50px;
+  margin-right: 10%;
+  margin-left: 10%;
+  color: green; }
+  .checkoutMessage .pdf_btn {
+    background-color: #FAF050;
+    border-style: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 2rem; }
+
 .banner-container {
   background-image: url(/Images/banner1.jpg);
   height: 65vh;
@@ -216,8 +255,6 @@ h2 {
   text-align: center;
   font-weight: 300;
   margin-top: px; }
-#container {
-  min-height: 100%; }
 
 #main {
   overflow: auto;
@@ -321,7 +358,8 @@ h4 {
     font-size: 0.8rem; }
   nav ul {
     padding-right: 0.5rem; } }
-.checkout-btn {
+
+#submit-field-box {
   background-color: #FAF050;
   border-style: none;
   padding-top: 5px;
@@ -329,26 +367,31 @@ h4 {
   padding-left: 10px;
   padding-right: 10px;
   font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 2rem; }
+  font-weight: 700; }
 
-.checkout-btn:hover {
-  background-color: black;
-  color: white; }
+.added_product_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem; }
 
-.checkoutMessage {
+.added_product_wrapper img {
+  width: 300px;
+  height: 300px; }
+
+.added_product_div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #F8F6F2;
-  padding: 40px;
-  margin-top: 50px;
-  margin-right: 10%;
-  margin-left: 10%;
-  color: green; }
-  .checkoutMessage .pdf_btn {
+  padding: 2rem; }
+  .added_product_div button {
     background-color: #FAF050;
     border-style: none;
     padding-top: 5px;
@@ -358,6 +401,10 @@ h4 {
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    margin-top: 2rem; }
-
-
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+  .added_product_div button:hover {
+    background-color: black;
+    color: white; }
+  .added_product_div h3 {
+    margin-top: 1rem; }
