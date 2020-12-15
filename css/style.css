@@ -54,8 +54,6 @@ form {
       font-size: 16px;
       font-weight: 700;
       cursor: pointer; }
-    .product_container .single_product #file {
-      width: 10vw; }
     .product_container .single_product h3 {
       margin-top: 1rem; }
 
@@ -148,7 +146,7 @@ span {
   color: black; }
 
 .menu a:hover {
-  color: white; }
+  color: blue; }
 
 label {
   margin: 0 40px 0 0;
@@ -433,7 +431,8 @@ h4 {
   justify-content: space-evenly;
   align-items: center;
   background-color: #F8F6F2;
-  padding: 2rem; }
+  padding: 2rem;
+  margin-bottom: 80px; }
   .added_product_div button {
     background-color: #FAF050;
     border-style: none;
