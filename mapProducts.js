@@ -63,11 +63,10 @@ let carts = document.querySelectorAll(".productBtn");
 // For loop for the cart length plus eventlistner to button
 for (let i = 0; i < carts.length; i++) {
     carts[i].addEventListener("click", () => {
-    cartNumbers(dataFromLocal[i]);
+    cartNumbers(dataFromLocal[i]);});
     
-      
-    });
   
+
   }
   
   function onLoadCartNumbers() {
@@ -99,25 +98,15 @@ for (let i = 0; i < carts.length; i++) {
   
   }
 
-  let itemsInCart = localStorage.getItem("cartNumbers");
-
-  for (let i = 0; i<parsedData.length; i++) {
-    let productPrice = parsedData[i].price;
-
-    console.log(productPrice);
-    let total = itemsInCart * productPrice;
-
-    console.log(total);
 
 
 
-    localStorage.setItem("totalCost", total);
 
-    
+
+
+
   
-  }
-  
-  
+
  
  
   onLoadCartNumbers()

@@ -2,9 +2,24 @@ const dataFromLocal = localStorage.getItem("produkt");
 const parsedData = JSON.parse(dataFromLocal);
 
 
-let itemsInCart = localStorage.getItem("cartNumbers");
+
     
- 
+for (let i = 0;  i<parsedData.length; i++) {
+  let productInCart = parsedData.length 
+  let productPrice = parsedData[i].price;
+  let itemsInCart = localStorage.getItem("cartNumbers");
+
+  
+  let total = productPrice * productInCart
+
+  
+  
+
+
+
+localStorage.setItem("totalCost", total);
+  
+}
   
   
   function displayCart() {
@@ -12,11 +27,13 @@ let itemsInCart = localStorage.getItem("cartNumbers");
     cartItems = JSON.parse(cartItems);
     let productContainer = document.querySelector(".products");
     let cartCost = localStorage.getItem("totalCost");
-    let productInCart = localStorage.getItem("cartNumbers");
-  
-  
-  
-  
+    
+    
+    
+   
+     
+    
+    
     if (cartItems && productContainer) {
       productContainer.innerHTML = "";
       Object.values(cartItems).map(item => {
@@ -31,6 +48,7 @@ let itemsInCart = localStorage.getItem("cartNumbers");
     <span><h5>Pris:</h5>${item.price},00kr</span>
     
     
+  </div>
     </div>
     </div>
     

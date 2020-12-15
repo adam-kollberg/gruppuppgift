@@ -19,6 +19,7 @@ productObject.name = productName;
 productObject.description = productDescription;
 productObject.price = parseInt (productPrice);
 productObject.id =  parseInt(productId);
+productObject.inCart = 0;
 
 
 products.push(productObject);
