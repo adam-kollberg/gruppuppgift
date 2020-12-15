@@ -1,59 +1,3 @@
-const dataFromLocal = localStorage.getItem("produkt")
-
-const parsedData = JSON.parse(dataFromLocal)
-
-parsedData.map( productObject => {
-const productContainer = document.querySelector(".added_product_container");
-
-
-const productWrapper = document.createElement ("div");
-productContainer.appendChild(productWrapper);
-productWrapper.className += "added_product_wrapper";
-
-const addedProductImg = document.createElement ("img");
-productWrapper.appendChild(addedProductImg);
-addedProductImg.src = "/bilder/parfymset.jpeg"
-
-
-const productDiv = document.createElement ("div");
-productWrapper.appendChild(productDiv);
-productDiv.className += "added_product_div";
-
-const productTitle = document.createElement("h3");
-productTitle.innerText = productObject.name;
-productDiv.appendChild(productTitle);
-productTitle.className += "single_product_heading";
-
-
-const productDescription  = document.createElement("p");
-productDescription.innerText = productObject.description;
-productDiv.appendChild(productDescription);
-
-
-
-const productPrice  = document.createElement("span");
-productPrice.innerText = productObject.price;
-productDiv.appendChild(productPrice);
-
-const productBtn = document.createElement ("button");
-productDiv.appendChild(productBtn);
-productBtn.innerText = "Add to cart";
-productBtn.className += "productBtn";
-
-const editBtn = document.createElement ("button");
-productDiv.appendChild(editBtn);
-editBtn.innerText = "Edit product";
-editBtn.className += "editBtn";
-
-
-
-});
-
-
-
-
-
-
 
 
 // add to cart button
@@ -158,8 +102,6 @@ function setItems(product) {
   }
 
 
-
-
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 
 
@@ -188,8 +130,6 @@ function displayCart() {
   let cartCost = localStorage.getItem("totalCost");
 
 
-
-
   if (cartItems && productContainer) {
     productContainer.innerHTML = "";
     Object.values(cartItems).map(item => {
@@ -204,10 +144,9 @@ function displayCart() {
   <span><h5>Pris:</h5>${item.price},00kr</span>
   
   <div class = "quantity">
-  
-  
-  <span><h5>Antal:</h5> <ion-icon name="chevron-back-outline"></ion-icon>${item.inCart}</span>
-  <ion-icon name="chevron-forward-outline"></ion-icon>
+  <span><h5>Antal:</h5> 
+  <ion-icon class="decrease" name="chevron-back-outline"></ion-icon>${item.inCart}</span>
+  <ion-icon class="increase" name="chevron-forward-outline"></ion-icon>
   </div>
   </div>
   </div>
@@ -223,23 +162,91 @@ function displayCart() {
 <button class = "checkout-btn">Genomför Köp</button>
 <div>
 `
+  
+
 
   }
 
+// Creating a function for remove items
+/* removeBtns();      // invokes the function - delete set up an eventlistern click
 
-  function manageQuantity() // kolla var denna ska vara - saknar en }
+function removeBtns(){                        // creates a function
+
+ let removeBtns = document.querySelectorAll(".product ion-icon"); // create variable to get all button
+ let productName;                  // initializing the variable
+ let productNumbers = localStorage.getItem("cartNumbers");
+ let cartProducts = localStorage.getItem("productsInCart")
+ cartProducts = JSON.parse(cartProducts); 
+ let cartCost = localStorage.getItem("totalCost");
+
+  
+   for(let i = 0; i < removeBtns.length; i++){          // loops through all buttons
+   removeBtns[i].addEventListener("click", ()=> {       // adding an event to removeBtn when click and pass a function to it
+    console.log("clicked");
+
+    productName = removeBtns[i].parentElement.textContent;    
+    console.log(productName);
+
+     
+        //localStorage.setItem("cartNumbers", productNumbers - cartProducts[productName].inCart);
+
+   localStorage.setItem("totalCost", cartCost - (cartProducts[productName].price * cartProducts[productName].inCart));
+
+  delete cartProducts[productName];
+   localStorage.setItem("productsInCart", JSON.stringify(cartProducts));
+
+   displayCart()
+   onLoadCartNumbers() 
+
+  });
+}
+
+ */
+ // manage to add/remove more item in cart
+
+changingQty(); // invokes the function
+
+  function changingQty(){
+     let subBtn = document.querySelectorAll(".decrease");
+     let addingBtn = document.querySelectorAll(".increase");
+     let cartItems = localStorage.getItem("productsInCart");
+     let currentQty = 0;
+     let currentProduct = "";
+     cartItems = JSON.parse(cartItems);
+
+     //console.log(cartItems);
+ 
+     for(let i=0; i < subBtn.length; i++){
+     subBtn[i].addEventListener("click", () =>{
+       currentQty = subBtn[i].parentElement.querySelector("span").textContent;
+       console.log(currentQty)
+
+      currentProduct = subBtn[i].parentElement.previousElementSibling.previousElementSibling.querySelector("span");
+      
+  
+      })
+     }
+  
+    for(let i=0; i < addingBtn.length; i++){
+  addingBtn[i].addEventListener("click", () =>{
+      console.log("increase button")
+  
+   
+        })
+      }
+   }
+
+
 
 
   // Checkout button
 
-  
 let checkOutBtn = document.querySelector(".checkout-btn");
 let checkoutMessageContainer = document.querySelector(".checkout_message")
   checkOutBtn.addEventListener("click", checkoutNow)
 
 
   function checkoutNow() {
-
 
     checkoutMessageContainer.innerHTML += `
   <div class = "checkoutMessage"> <h3 class "thank_you_title>Tack för ditt köp, din order är nu genomförd</h3> 
@@ -249,8 +256,6 @@ let checkoutMessageContainer = document.querySelector(".checkout_message")
 const pdf = new jsPDF();
 
   let pdfBtn = document.querySelector(".pdf_btn");
-  
-  
   
   
   function savePDF() {
@@ -263,35 +268,10 @@ const pdf = new jsPDF();
 
   }
 
+}
 
-
-  function manageQuantity()
-  {
-    let subBtn = document.querySelectorAll(".decrease");
-    let addingBtn = document.querySelectorAll(".increase");
-  
-    for(let i=0; i < subBtn.length; i++){
-      subBtn[i].addEventListener("click", () =>{
-
-  
-      })
-    }
-  
-    for(let i=0; i < addingBtn.length; i++){
-      addingBtn[i].addEventListener("click", () =>{
-  
-  
-      })
-    }
-
-
-
-
-
-
-
-  
-
+onLoadCartNumbers()
+displayCart()
 
 /* const dataFromLocal = localStorage.getItem("produkt")
 
@@ -345,9 +325,3 @@ editBtn.className += "editBtn";
 });
  */
  
-
-}
-onLoadCartNumbers()
-displayCart()
-
-
