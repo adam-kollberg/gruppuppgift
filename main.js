@@ -54,9 +54,6 @@
 
 
 
-
-
-
 // add to cart button
 let carts = document.querySelectorAll(".single_product_btn");
 
