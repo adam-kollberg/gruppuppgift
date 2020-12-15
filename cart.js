@@ -10,7 +10,7 @@ for (let i = 0;  i<parsedData.length; i++) {
   let itemsInCart = localStorage.getItem("cartNumbers");
 
   
-  let total = productPrice * productInCart
+  let total = productPrice * itemsInCart
 
   
   
