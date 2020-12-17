@@ -101,6 +101,34 @@ const products = [
     description: "dolce",
     price: 800,
     inCart: 0
+  },
+
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
+    inCart: 0
+  },
+
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
+    inCart: 0
+  },
+  
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
+    inCart: 0
+  },
+
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
+    inCart: 0
   }
 
 
