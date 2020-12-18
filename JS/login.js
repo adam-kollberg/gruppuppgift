@@ -11,7 +11,7 @@ loginButton.addEventListener("click",(e) => {
       const password = loginForm.password.value;
       
 
-      if (username === "grupp3" && password ==="passgrupp3") {
+      if (username === "hej" && password ==="hej") {
         alert("you have successfully logged in.");
        // location.reload();
         window.location = "addproduct.html";

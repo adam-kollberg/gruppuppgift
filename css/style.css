@@ -18,7 +18,7 @@ form {
     border-style: none;
     padding: 10px;
     color: black; }
-  form button {
+  form .productBtn {
     background-color: #FAF050;
     border-style: none;
     padding-top: 5px;
@@ -450,3 +450,82 @@ h4 {
     color: white; }
   .added_product_div h3 {
     margin-top: 1rem; }
+
+.image_gallery {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 100px 0; }
+  .image_gallery .image_container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 61px 7px #5e849c40;
+    padding: 50px 20px;
+    text-align: center; }
+  .image_gallery .image_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; }
+    .image_gallery .image_header .logo {
+      font-size: 40px;
+      font-weight: 900;
+      letter-spacing: -2; }
+  .image_gallery form {
+    margin-top: 10px;
+    width: 80%;
+    max-width: 300px;
+    position: relative;
+    background-color: white; }
+    .image_gallery form input {
+      border: none;
+      border-bottom: 2px solid rgba(128, 128, 128, 0.479);
+      margin-bottom: 10px;
+      font-size: 20px;
+      outline: none;
+      color: gray;
+      background-color: transparent;
+      width: 100%; }
+    .image_gallery form input::placeholder {
+      opacity: 0.5;
+      color: gray;
+      font-weight: 500; }
+  .image_gallery form ion-icon {
+    position: absolute;
+    right: 0;
+    opacity: .5;
+    color: gray;
+    font-size: 20px; }
+  .image_gallery img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+  .image_gallery .gallery {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-top: 50px;
+    grid-gap: 20px; }
+  .image_gallery .item {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: .3s ease box-shadow; }
+  .image_gallery .item:hover {
+    box-shadow: 0px 0px 20px 3px #00000042; }
+  .image_gallery .load_more {
+    display: inline-block;
+    margin-top: 30px;
+    background-color: black;
+    padding: 20px 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 20px; }

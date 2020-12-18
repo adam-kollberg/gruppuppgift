@@ -1,50 +1,17 @@
-const dataFromLocal = localStorage.getItem("produkt")
+class photoGallery {
+  constructor() {
+   this.API_KEY = "563492ad6f91700001000001f3bf8f62aaf54488b3f02e6efa474d04";
+   this.galleryDiv = document.querySelector(".gallery");
+   this.searchForm = document.querySelector(".header form");
+   this.loadMore = document.querySelector(".load_more");
+   this.eventHandle();
 
-const parsedData = JSON.parse(dataFromLocal)
+  }
 
-parsedData.map( productObject => {
-const productContainer = document.querySelector(".added_product_container");
+  eventHandle () {
+document.addEventListener("DOMContentLoaded",() => {
 
-
-const productWrapper = document.createElement ("div");
-productContainer.appendChild(productWrapper);
-productWrapper.className += "added_product_wrapper";
-
-const addedProductImg = document.createElement ("img");
-productWrapper.appendChild(addedProductImg);
-addedProductImg.src = "/bilder/parfymset.jpeg"
-
-
-const productDiv = document.createElement ("div");
-productWrapper.appendChild(productDiv);
-productDiv.className += "added_product_div";
-
-const productTitle = document.createElement("h3");
-productTitle.innerText = productObject.name;
-productDiv.appendChild(productTitle);
-productTitle.className += "single_product_heading";
-
-
-const productDescription  = document.createElement("p");
-productDescription.innerText = productObject.description;
-productDiv.appendChild(productDescription);
-
-
-
-const productPrice  = document.createElement("span");
-productPrice.innerText = productObject.price;
-productDiv.appendChild(productPrice);
-
-const productBtn = document.createElement ("button");
-productDiv.appendChild(productBtn);
-productBtn.innerText = "Add to cart";
-productBtn.className += "productBtn";
-
-const editBtn = document.createElement ("button");
-productDiv.appendChild(editBtn);
-editBtn.innerText = "Edit product";
-editBtn.className += "editBtn";
-
+ this.getImg(); 
 
 
 });
@@ -52,6 +19,53 @@ editBtn.className += "editBtn";
 
 
 
+  }
+
+async getImg(){
+const baseURL = "https://api.pexels.com/v1/search?query=perfume&per_page=12";
+const data = await this.fetchImages(baseURL);
+this.generateHTML(data.photos);
+console.log(data);
+
+
+
+}
+
+async fetchImages(baseURL) {
+  const response = await fetch(baseURL, {
+    method: "GET", 
+    headers: {
+    Accept: "application/json",
+    Authorization: this.API_KEY
+    }
+  });
+  
+  const data = await response.json();
+  return data;
+}
+
+generateHTML(photos) {
+ photos.forEach(photo=>{
+   const item = document.createElement("div");
+   item.classList.add("item");
+   item.innerHTML = `
+   
+   <img src="${photo.src.medium}">
+   
+   
+   
+   
+   `
+
+  this.galleryDiv.appendChild(item);
+ })
+
+}
+
+
+}
+
+const gallery = new photoGallery;
 
 
 
@@ -79,6 +93,34 @@ const products = [
     name: "Parfymset",
     description: "parfymset",
     price: 900,
+    inCart: 0
+  },
+
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
+    inCart: 0
+  },
+
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
+    inCart: 0
+  },
+
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
+    inCart: 0
+  },
+  
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
     inCart: 0
   },
 
@@ -284,8 +326,8 @@ location.reload()
 
   
 let checkOutBtn = document.querySelector(".checkout-btn");
-let checkoutMessageContainer = document.querySelector(".checkout_message")
-  checkOutBtn.addEventListener("click", checkoutNow)
+let checkoutMessageContainer = document.querySelector(".checkout_message");
+ checkOutBtn.addEventListener("click", checkoutNow);
 
 
   function checkoutNow() {
@@ -320,7 +362,6 @@ const pdf = new jsPDF();
 }
 onLoadCartNumbers()
 displayCart()
-
 
 
 
