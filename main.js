@@ -56,12 +56,20 @@ function onLoadCartNumbers() {
 
 
 // Function for get the timed clicked and set item in local storage
-function cartNumbers(product) {
+function cartNumbers(product, action) {
 
   let productNumbers = localStorage.getItem("cartNumbers");
-
-
   productNumbers = parseInt(productNumbers);
+
+  let cartItems = localStorage.getItem("productsInCart");
+  cartItems = JSON.parse(cartItems);
+
+  if (action == "decrease") {
+
+    localStorage.setItem("cartNumber", productNumbers - 1);
+    document.querySelector(".cart span").textContent = productNumbers - 1;
+  }
+
 
   if (productNumbers) {
     localStorage.setItem("cartNumbers", productNumbers + 1);
@@ -112,8 +120,6 @@ function setItems(product) {
 function totalCost(product) {
   let cartCost = localStorage.getItem("totalCost");
 
-
-
   if (cartCost != null) {
     cartCost = parseInt(cartCost);
     localStorage.setItem("totalCost", cartCost + product.price);
@@ -132,7 +138,7 @@ function displayCart() {
 
   if (cartItems && productContainer) {
     productContainer.innerHTML = "";
-    Object.values(cartItems).map(item => {
+    Object.values(cartItems).map((item, index) => {
       productContainer.innerHTML += `
   <div class="product">
   <ion-icon class="delete_btn" name="close-circle-outline"></ion-icon>
@@ -144,7 +150,7 @@ function displayCart() {
   <span><h5>Pris:</h5>${item.price},00kr</span>
   
   <div class = "quantity">
-  <span><h5>Antal:</h5> 
+  <span class="dec"><h5>Antal:</h5> 
   <ion-icon class="decrease" name="chevron-back-outline"></ion-icon>${item.inCart}</span>
   <ion-icon class="increase" name="chevron-forward-outline"></ion-icon>
   </div>
@@ -162,87 +168,115 @@ function displayCart() {
 <button class = "checkout-btn">Genomför Köp</button>
 <div>
 `
-  
-
 
   }
 
-// Creating a function for remove items
-/* removeBtns();      // invokes the function - delete set up an eventlistern click
 
-function removeBtns(){                        // creates a function
 
- let removeBtns = document.querySelectorAll(".product ion-icon"); // create variable to get all button
- let productName;                  // initializing the variable
- let productNumbers = localStorage.getItem("cartNumbers");
- let cartProducts = localStorage.getItem("productsInCart")
- cartProducts = JSON.parse(cartProducts); 
- let cartCost = localStorage.getItem("totalCost");
+  // --------- Creating a function for remove item in cart
 
-  
-   for(let i = 0; i < removeBtns.length; i++){          // loops through all buttons
-   removeBtns[i].addEventListener("click", ()=> {       // adding an event to removeBtn when click and pass a function to it
-    console.log("clicked");
+  removeBtns();      // invokes the function 
 
-    productName = removeBtns[i].parentElement.textContent;    
-    console.log(productName);
+  function removeBtns() {                        // creates a function
 
-     
-        //localStorage.setItem("cartNumbers", productNumbers - cartProducts[productName].inCart);
+    let removeBtns = document.querySelectorAll(".delete_btn"); // create variable to get all button
+    let productNumbers = localStorage.getItem("cartNumbers");
 
-   localStorage.setItem("totalCost", cartCost - (cartProducts[productName].price * cartProducts[productName].inCart));
+    console.log(removeBtns)
 
-  delete cartProducts[productName];
-   localStorage.setItem("productsInCart", JSON.stringify(cartProducts));
+    let cartProducts = localStorage.getItem("productsInCart");
 
-   displayCart()
-   onLoadCartNumbers() 
+    console.log(cartProducts)
 
-  });
-}
+    let cartTotal = localStorage.getItem("totalCost");
+console.log(cartTotal)
 
- */
- // manage to add/remove more item in cart
+     cartProducts = JSON.parse(cartProducts);
+    for (let i = 0; i < removeBtns.length; i++) {          // loops through all "removebuttons"
+      removeBtns[i].addEventListener("click", () => {       // adding an event to removeBtn when click and pass a function to it
 
-changingQty(); // invokes the function
-
-  function changingQty(){
-     let subBtn = document.querySelectorAll(".decrease");
-     let addingBtn = document.querySelectorAll(".increase");
-     let cartItems = localStorage.getItem("productsInCart");
-     let currentQty = 0;
-     let currentProduct = "";
-     cartItems = JSON.parse(cartItems);
-
-     //console.log(cartItems);
- 
-     for(let i=0; i < subBtn.length; i++){
-     subBtn[i].addEventListener("click", () =>{
-       currentQty = subBtn[i].parentElement.querySelector("span").textContent;
-       console.log(currentQty)
-
-      currentProduct = subBtn[i].parentElement.previousElementSibling.previousElementSibling.querySelector("span");
+        let productName = Object.keys(cartProducts)[i];
+        console.log(productName)
       
-  
-      })
-     }
-  
-    for(let i=0; i < addingBtn.length; i++){
-  addingBtn[i].addEventListener("click", () =>{
-      console.log("increase button")
-  
-   
-        })
-      }
-   }
+        removeBtns[i].parentElement.remove()
 
+       // console.log(cartProducts.chanel.inCart)
+
+        localStorage.setItem("cartNumbers", productNumbers - cartProducts[productName].inCart); 
+
+        console.log(cartNumbers) 
+
+        console.log(cartTotal - (cartProducts[productName].price * cartProducts[productName].inCart))
+
+        localStorage.setItem("totalCost",cartTotal - (cartProducts[productName].price * cartProducts[productName].inCart));
+
+       
+
+        delete cartProducts[productName]
+
+        // delete cartnumbers
+        localStorage.setItem("productsInCart", JSON.stringify(cartProducts));
+
+       // localStorage.setItem("totalCost", JSON.stringify(cartTotal));
+      
+location.reload()
+      });
+    }
+  }
+
+
+  /* // manage to add/remove more item in cart
+
+  changingQty(); // invokes the function
+
+  function changingQty() {
+    let subBtn = document.querySelectorAll(".decrease");    // choose all the buttons that have decrease  
+    let addingBtn = document.querySelectorAll(".increase");  //choose all the buttons that have increase 
+    let cartItems = localStorage.getItem("productsInCart");  // grabbing the productsIncart in localstorage through creating a var
+    let currentQty = 0;
+    let currentProduct = "";                               //initialize the product
+    cartItems = JSON.parse(cartItems);                        // convert to JS object
+    console.log(cartItems);
+
+
+    for (let i = 0; i < subBtn.length; i++) {      // for loop - through all buttons and add addeventlistener and it does something
+      subBtn[i].addEventListener("click", () => {
+
+        currentQty = subBtn[i].parentElement.parentElement.querySelector("span").textContent;
+        console.log(currentQty);
+
+        currentProduct = subBtn[i].parentElement.parentElement.parentElement.querySelector("span").textContent;
+        console.log(currentProduct);
+
+
+        cartItems[currentProduct].inCart -= 1;
+        cartNumbers(cartItems[currentProduct], "decrease");
+        localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+        console.log(cartNumbers)
+
+      });
+    }
+    for (let i = 0; i < addingBtn.length; i++) {
+      addingBtn[i].addEventListener("click", () => {
+
+        currentQty = addingBtn[i].parentElement.querySelector("span").textContent;
+        console.log(currentQty)
+
+        currentProduct = addingBtn[i].parentElement.parentElement.parentElement.querySelector("span").textContent;
+
+        console.log(currentProduct)
+
+
+      })
+    }
+  } */
 
 
 
   // Checkout button
 
-let checkOutBtn = document.querySelector(".checkout-btn");
-let checkoutMessageContainer = document.querySelector(".checkout_message")
+  let checkOutBtn = document.querySelector(".checkout-btn");
+  let checkoutMessageContainer = document.querySelector(".checkout_message")
   checkOutBtn.addEventListener("click", checkoutNow)
 
 
@@ -253,22 +287,23 @@ let checkoutMessageContainer = document.querySelector(".checkout_message")
   <button class = "pdf_btn"> <i class="fas fa-file-pdf"></i> Ladda ner orderdetaljer som pdf</button>
   </div>
 `
-const pdf = new jsPDF();
+    const pdf = new jsPDF();
 
-  let pdfBtn = document.querySelector(".pdf_btn");
-  
-  
-  function savePDF() {
-  
-    pdf.text(10, 10, `Totalt att betala: ${cartCost}   ` );
-    pdf.save("Kvitto.pdf");
-  }
-  
-  pdfBtn.addEventListener("click", savePDF);
+    let pdfBtn = document.querySelector(".pdf_btn");
+
+
+    function savePDF() {
+
+      pdf.text(10, 10, `Totalt att betala: ${cartCost}   `);
+      pdf.save("Kvitto.pdf");
+    }
+
+    pdfBtn.addEventListener("click", savePDF);
 
   }
 
 }
+
 
 onLoadCartNumbers()
 displayCart()
@@ -324,4 +359,4 @@ editBtn.className += "editBtn";
 
 });
  */
- 
+
