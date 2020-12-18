@@ -310,8 +310,8 @@ const pdf = new jsPDF();
  
 
 }
-//onLoadCartNumbers()
-//displayCart()
+onLoadCartNumbers()
+displayCart()
 
 
 
