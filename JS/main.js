@@ -1,3 +1,73 @@
+class photoGallery {
+  constructor() {
+   this.API_KEY = "563492ad6f91700001000001f3bf8f62aaf54488b3f02e6efa474d04";
+   this.galleryDiv = document.querySelector(".gallery");
+   this.searchForm = document.querySelector(".header form");
+   this.loadMore = document.querySelector(".load_more");
+   this.eventHandle();
+
+  }
+
+  eventHandle () {
+document.addEventListener("DOMContentLoaded",() => {
+
+ this.getImg(); 
+
+
+});
+
+
+
+
+  }
+
+async getImg(){
+const baseURL = "https://api.pexels.com/v1/search?query=perfume&per_page=12";
+const data = await this.fetchImages(baseURL);
+this.generateHTML(data.photos);
+console.log(data);
+
+
+
+}
+
+async fetchImages(baseURL) {
+  const response = await fetch(baseURL, {
+    method: "GET", 
+    headers: {
+    Accept: "application/json",
+    Authorization: this.API_KEY
+    }
+  });
+  
+  const data = await response.json();
+  return data;
+}
+
+generateHTML(photos) {
+ photos.forEach(photo=>{
+   const item = document.createElement("div");
+   item.classList.add("item");
+   item.innerHTML = `
+   
+   <img src="${photo.src.medium}">
+   
+   
+   
+   
+   `
+
+  this.galleryDiv.appendChild(item);
+ })
+
+}
+
+
+}
+
+const gallery = new photoGallery;
+
+
 
 
 // add to cart button
@@ -23,6 +93,34 @@ const products = [
     name: "Parfymset",
     description: "parfymset",
     price: 900,
+    inCart: 0
+  },
+
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
+    inCart: 0
+  },
+
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
+    inCart: 0
+  },
+
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
+    inCart: 0
+  },
+  
+  {
+    name: "D&G Fragance",
+    description: "dolce",
+    price: 800,
     inCart: 0
   },
 
@@ -171,6 +269,56 @@ function displayCart() {
 
   }
 
+// --------- Creating a function for remove item in cart
+
+removeBtns();      // invokes the function 
+
+function removeBtns() {                        // creates a function
+
+  let removeBtns = document.querySelectorAll(".delete_btn"); // create variable to get all button
+  let productNumbers = localStorage.getItem("cartNumbers");
+
+  console.log(removeBtns)
+
+  let cartProducts = localStorage.getItem("productsInCart");
+
+  console.log(cartProducts)
+
+  let cartTotal = localStorage.getItem("totalCost");
+console.log(cartTotal)
+
+   cartProducts = JSON.parse(cartProducts);
+  for (let i = 0; i < removeBtns.length; i++) {          // loops through all "removebuttons"
+    removeBtns[i].addEventListener("click", () => {       // adding an event to removeBtn when click and pass a function to it
+
+      let productName = Object.keys(cartProducts)[i];
+      console.log(productName)
+    
+      removeBtns[i].parentElement.remove()
+
+     // console.log(cartProducts.chanel.inCart)
+
+      localStorage.setItem("cartNumbers", productNumbers - cartProducts[productName].inCart); 
+
+      console.log(cartNumbers) 
+
+      console.log(cartTotal - (cartProducts[productName].price * cartProducts[productName].inCart))
+
+      localStorage.setItem("totalCost",cartTotal - (cartProducts[productName].price * cartProducts[productName].inCart));
+
+     
+
+      delete cartProducts[productName]
+
+      // delete cartnumbers
+      localStorage.setItem("productsInCart", JSON.stringify(cartProducts));
+
+     // localStorage.setItem("totalCost", JSON.stringify(cartTotal));
+    
+location.reload()
+    });
+  }
+}
 
 
   // --------- Creating a function for remove item in cart
@@ -275,9 +423,10 @@ location.reload()
 
   // Checkout button
 
-  let checkOutBtn = document.querySelector(".checkout-btn");
-  let checkoutMessageContainer = document.querySelector(".checkout_message")
-  checkOutBtn.addEventListener("click", checkoutNow)
+  
+let checkOutBtn = document.querySelector(".checkout-btn");
+let checkoutMessageContainer = document.querySelector(".checkout_message");
+ checkOutBtn.addEventListener("click", checkoutNow);
 
 
   function checkoutNow() {
@@ -356,7 +505,4 @@ editBtn.innerText = "Edit product";
 editBtn.className += "editBtn";
 
 
-
-});
- */
-
+*/
