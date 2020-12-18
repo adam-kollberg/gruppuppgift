@@ -276,8 +276,8 @@ function displayCart() {
 
   
 let checkOutBtn = document.querySelector(".checkout-btn");
-let checkoutMessageContainer = document.querySelector(".checkout_message")
-  checkOutBtn.addEventListener("click", checkoutNow)
+let checkoutMessageContainer = document.querySelector(".checkout_message");
+ checkOutBtn.addEventListener("click", checkoutNow);
 
 
   function checkoutNow() {
@@ -310,8 +310,8 @@ const pdf = new jsPDF();
  
 
 }
-onLoadCartNumbers()
-displayCart()
+//onLoadCartNumbers()
+//displayCart()
 
 
 
