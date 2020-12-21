@@ -354,7 +354,7 @@ h4 {
     margin-bottom: 40px; }
   #main {
     padding-bottom: 180px; }
-  h4 {
+  .footer h4 {
     display: none; }
   .social-media img {
     display: inline-block;
@@ -399,6 +399,10 @@ h4 {
     font-size: 1rem; }
   .tags {
     font-size: 0.7rem; } }
+
+@media only screen and (max-width: 856px) {
+  .basket-total-container {
+    margin-top: 30px; } }
 
 #submit-field-box {
   background-color: #FAF050;
