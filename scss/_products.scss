@@ -66,7 +66,7 @@ h3  {
 
 //Startsida ----->
 
-.product_wrapper {
+#page {
 
 display: flex;
 flex-direction: row;
@@ -75,7 +75,7 @@ flex-wrap: wrap;
 margin-bottom: 80px;
 
 
-    .single_product_wrapper {
+    .list-group {
     display: flex;
     flex-direction: column;
     justify-content: center;

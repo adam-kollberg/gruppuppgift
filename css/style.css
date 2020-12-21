@@ -68,19 +68,19 @@ form {
   margin-top: 40px;
   margin-bottom: 40px; }
 
-.product_wrapper {
+#page {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin-bottom: 80px; }
-  .product_wrapper .single_product_wrapper {
+  #page .list-group {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px; }
-    .product_wrapper .single_product_wrapper .product_info {
+    #page .list-group .product_info {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -90,11 +90,11 @@ form {
       width: 100%;
       padding-top: 2rem;
       padding-bottom: 2rem; }
-      .product_wrapper .single_product_wrapper .product_info h3 {
+      #page .list-group .product_info h3 {
         padding-bottom: 0.5rem; }
-      .product_wrapper .single_product_wrapper .product_info p {
+      #page .list-group .product_info p {
         padding-bottom: 0.5rem; }
-      .product_wrapper .single_product_wrapper .product_info button {
+      #page .list-group .product_info button {
         background-color: #FAF050;
         border-style: none;
         padding-top: 5px;
@@ -104,10 +104,10 @@ form {
         font-size: 16px;
         font-weight: 700;
         cursor: pointer; }
-      .product_wrapper .single_product_wrapper .product_info button:hover {
+      #page .list-group .product_info button:hover {
         background-color: black;
         color: white; }
-    .product_wrapper .single_product_wrapper img {
+    #page .list-group img {
       width: 300px;
       height: 300px; }
 
@@ -529,3 +529,15 @@ h4 {
     font-weight: 500;
     cursor: pointer;
     font-size: 20px; }
+
+.pagination {
+  display: flex;
+  justify-content: center; }
+  .pagination li {
+    padding: 0 1.5rem; }
+    .pagination li a {
+      text-decoration: none;
+      color: black;
+      font-size: 1.5rem; }
+    .pagination li .active {
+      color: green; }

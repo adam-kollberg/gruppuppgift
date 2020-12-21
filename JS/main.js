@@ -1,3 +1,8 @@
+
+
+
+
+
 class photoGallery {
   constructor() {
    this.API_KEY = "563492ad6f91700001000001f3bf8f62aaf54488b3f02e6efa474d04";
@@ -271,6 +276,56 @@ function displayCart() {
 
   }
 
+// --------- Creating a function for remove item in cart
+
+removeBtns();      // invokes the function 
+
+function removeBtns() {                        // creates a function
+
+  let removeBtns = document.querySelectorAll(".delete_btn"); // create variable to get all button
+  let productNumbers = localStorage.getItem("cartNumbers");
+
+  console.log(removeBtns)
+
+  let cartProducts = localStorage.getItem("productsInCart");
+
+  console.log(cartProducts)
+
+  let cartTotal = localStorage.getItem("totalCost");
+console.log(cartTotal)
+
+   cartProducts = JSON.parse(cartProducts);
+  for (let i = 0; i < removeBtns.length; i++) {          // loops through all "removebuttons"
+    removeBtns[i].addEventListener("click", () => {       // adding an event to removeBtn when click and pass a function to it
+
+      let productName = Object.keys(cartProducts)[i];
+      console.log(productName)
+    
+      removeBtns[i].parentElement.remove()
+
+     // console.log(cartProducts.chanel.inCart)
+
+      localStorage.setItem("cartNumbers", productNumbers - cartProducts[productName].inCart); 
+
+      console.log(cartNumbers) 
+
+      console.log(cartTotal - (cartProducts[productName].price * cartProducts[productName].inCart))
+
+      localStorage.setItem("totalCost",cartTotal - (cartProducts[productName].price * cartProducts[productName].inCart));
+
+     
+
+      delete cartProducts[productName]
+
+      // delete cartnumbers
+      localStorage.setItem("productsInCart", JSON.stringify(cartProducts));
+
+     // localStorage.setItem("totalCost", JSON.stringify(cartTotal));
+    
+location.reload()
+    });
+  }
+}
 
 
 
@@ -279,8 +334,8 @@ function displayCart() {
 
   
 let checkOutBtn = document.querySelector(".checkout-btn");
-let checkoutMessageContainer = document.querySelector(".checkout_message")
-  checkOutBtn.addEventListener("click", checkoutNow)
+let checkoutMessageContainer = document.querySelector(".checkout_message");
+ checkOutBtn.addEventListener("click", checkoutNow);
 
 
   function checkoutNow() {
@@ -313,6 +368,12 @@ const pdf = new jsPDF();
  
 
 }
+
+
+
+
+
+
 onLoadCartNumbers()
 displayCart()
 
