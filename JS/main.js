@@ -134,6 +134,9 @@ const products = [
 
 ];
 
+const listElement = document.querySelector(".list");
+const paginationElement = document.querySelector(".pagination");
+
 
 // For loop for the cart length plus eventlistner to button
 for (let i = 0; i < carts.length; i++) {
