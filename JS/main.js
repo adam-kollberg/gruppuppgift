@@ -1,90 +1,73 @@
 class photoGallery {
   constructor() {
-   this.API_KEY = "563492ad6f91700001000001f3bf8f62aaf54488b3f02e6efa474d04";
-   this.galleryDiv = document.querySelector(".gallery");
-   this.searchForm = document.querySelector(".header form");
-   this.loadMore = document.querySelector(".load_more");
-   this.eventHandle();
-
+    this.API_KEY = "563492ad6f91700001000001f3bf8f62aaf54488b3f02e6efa474d04";
+    this.galleryDiv = document.querySelector(".gallery");
+    this.searchForm = document.querySelector(".header form");
+    this.loadMore = document.querySelector(".load_more");
+    this.eventHandle();
   }
 
   eventHandle () {
-document.addEventListener("DOMContentLoaded",() => {
-
- this.getImg(); 
-
-
-});
-
-
-
-
+    document.addEventListener("DOMContentLoaded",() => {
+    this.getImg(); 
+    });
   }
 
-async getImg(){
-const baseURL = "https://api.pexels.com/v1/search?query=perfume&per_page=12";
-const data = await this.fetchImages(baseURL);
-this.generateHTML(data.photos);
-console.log(data);
+  async getImg(){
+    const baseURL = "https://api.pexels.com/v1/search?query=perfume&per_page=12";
+    const data = await this.fetchImages(baseURL);
+    this.generateHTML(data.photos);
+    console.log(data);
+  }
 
+  async fetchImages(baseURL) {
+    const response = await fetch(baseURL, {
+      method: "GET", 
+      headers: {
+      Accept: "application/json",
+      Authorization: this.API_KEY
+      }
+    });
+    
+    const data = await response.json();
+    return data;
+  }
 
+  generateHTML(photos) {
+    photos.forEach(photo=>{
+      const item = document.createElement("div");
+      item.classList.add("item");
+      item.innerHTML = `
+      
+      <img src="${photo.src.medium}">
+      
+      
+      
+      
+      `
 
-}
-
-async fetchImages(baseURL) {
-  const response = await fetch(baseURL, {
-    method: "GET", 
-    headers: {
-    Accept: "application/json",
-    Authorization: this.API_KEY
-    }
-  });
-  
-  const data = await response.json();
-  return data;
-}
-
-generateHTML(photos) {
- photos.forEach(photo=>{
-   const item = document.createElement("div");
-   item.classList.add("item");
-   item.innerHTML = `
-   
-   <img src="${photo.src.medium}">
-   
-   
-   
-   
-   `
-
-  this.galleryDiv.appendChild(item);
- })
-
-}
-
-
+      this.galleryDiv.appendChild(item);
+    })
+  }
 }
 
 const gallery = new photoGallery;
-
-
-
 
 // add to cart button
 let carts = document.querySelectorAll(".single_product_btn");
 
 const products = [
-
   {
     name: "Chanel fragance",
     description: "chanel",
+    image: "/bilder/chanel.jpeg",
     price: 1200,
     inCart: 0
-
   },
   {
     name: "D&G Fragance",
     description: "d&g",
+    image: "/bilder/dolce.jpeg",
     price: 1100,
     inCart: 0
   },
@@ -92,6 +75,7 @@ const products = [
   {
     name: "Parfymset",
     description: "parfymset",
+    image: "/bilder/parfymset.jpeg",
     price: 900,
     inCart: 0
   },
@@ -99,6 +83,7 @@ const products = [
   {
     name: "D&G Fragance",
     description: "dolce",
+    image: "/bilder/dolce.jpeg",
     price: 800,
     inCart: 0
   },
@@ -106,6 +91,7 @@ const products = [
   {
     name: "D&G Fragance",
     description: "dolce",
+    image: "/bilder/dolce.jpeg",
     price: 800,
     inCart: 0
   },
@@ -113,6 +99,7 @@ const products = [
   {
     name: "D&G Fragance",
     description: "dolce",
+    image: "/bilder/dolce.jpeg",
     price: 800,
     inCart: 0
   },
@@ -120,6 +107,7 @@ const products = [
   {
     name: "D&G Fragance",
     description: "dolce",
+    image: "/bilder/dolce.jpeg",
     price: 800,
     inCart: 0
   },
@@ -127,12 +115,27 @@ const products = [
   {
     name: "D&G Fragance",
     description: "dolce",
+    image: "/bilder/dolce.jpeg",
     price: 800,
     inCart: 0
   }
-
-
 ];
+
+const productWrapper = document.querySelector('.product_wrapper');
+
+products.forEach((product) => {
+  productWrapper.innerHTML += `
+    <div class="single_product_wrapper">
+      <img src="${product.image}" alt="" class="single_product_img">
+      <div class="product_info" id=${product.id}>
+        <h3 class="single_product_heading">${product.name}</h3>
+        <p class="single_product_description">${product.description}</p>
+        <p class="single_product_price">${product.price} kr</p>
+        <button class="single_product_btn">Lägg i varukorg</button>
+      </div>
+    </div>
+  `;
+});
 
 
 // For loop for the cart length plus eventlistner to button
@@ -154,20 +157,11 @@ function onLoadCartNumbers() {
 
 
 // Function for get the timed clicked and set item in local storage
-function cartNumbers(product, action) {
+function cartNumbers(product) {
 
   let productNumbers = localStorage.getItem("cartNumbers");
+
   productNumbers = parseInt(productNumbers);
-
-  let cartItems = localStorage.getItem("productsInCart");
-  cartItems = JSON.parse(cartItems);
-
-  if (action == "decrease") {
-
-    localStorage.setItem("cartNumber", productNumbers - 1);
-    document.querySelector(".cart span").textContent = productNumbers - 1;
-  }
-
 
   if (productNumbers) {
     localStorage.setItem("cartNumbers", productNumbers + 1);
@@ -208,6 +202,8 @@ function setItems(product) {
   }
 
 
+
+
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 
 
@@ -217,6 +213,8 @@ function setItems(product) {
 
 function totalCost(product) {
   let cartCost = localStorage.getItem("totalCost");
+
+
 
   if (cartCost != null) {
     cartCost = parseInt(cartCost);
@@ -236,39 +234,63 @@ function displayCart() {
 
   if (cartItems && productContainer) {
     productContainer.innerHTML = "";
-    Object.values(cartItems).map((item, index) => {
+    Object.values(cartItems).map((item, i) => {
       productContainer.innerHTML += `
-  <div class="product">
-  <ion-icon class="delete_btn" name="close-circle-outline"></ion-icon>
-  <img src="./bilder/${item.description}.jpeg">
-  <div class = cart-product-wrapper>
-  <h5>Produktnamn:</h5>
-  <span>${item.name}</span>
-  
-  <span><h5>Pris:</h5>${item.price},00kr</span>
-  
-  <div class = "quantity">
-  <span class="dec"><h5>Antal:</h5> 
-  <ion-icon class="decrease" name="chevron-back-outline"></ion-icon>${item.inCart}</span>
-  <ion-icon class="increase" name="chevron-forward-outline"></ion-icon>
-  </div>
-  </div>
-  </div>
-  
-  
-</div>
-  `
+      <div class="product">
+        <ion-icon class="delete_btn" name="close-circle-outline"></ion-icon>
+        <img src="./bilder/${item.description}.jpeg">
+        <div class="cart-product-wrapper">
+          <h5>Produktnamn:</h5>
+          <span>${item.name}</span>
+          <span><h5>Pris:</h5>${item.price},00kr</span>
+          <div class="quantity">
+            <span><h5>Antal:</h5></span>
+            <ion-icon class="decrease" name="chevron-back-outline"></ion-icon> 
+            <span id="qty${i}">${item.inCart}</span>
+            <ion-icon class="increase" name="chevron-forward-outline"></ion-icon>
+          </div>
+        </div>
+      </div>`
     });
     productContainer.innerHTML += ` 
-<div class = "basket-total-container">
-<h4 class = "basket-total-title">Totalt i varukorgen:</h4>
-<h4 class = "basket-total"> ${cartCost},00kr </h4>
-<button class = "checkout-btn">Genomför Köp</button>
-<div>
-`
+    <div class = "basket-total-container">
+      <h4 class = "basket-total-title">Totalt i varukorgen:</h4>
+      <h4 class = "basket-total"> ${cartCost},00kr </h4>
+      <button class = "checkout-btn">Genomför Köp</button>
+    <div>
+    `
+  }
+//--------------- increase and decrease items---------
 
+   let add = document.querySelectorAll(".increase")   // choose all increase buttons
+   let remove = document.querySelectorAll (".decrease") // choose all decrease buttons         // 
+   for (let i = 0; i < add.length; i++) {   // loop buttons and add addeventlistener to click
+    add[i].addEventListener("click", () => { 
+      let int = document.getElementById(`qty${i}`)  
+      // let qtyProducts = Object.values(products[1])[1];   // 
+
+      int.innerText = parseInt(int.innerText) + 1;
+      let productNumbers = localStorage.getItem("cartNumbers");
+      localStorage.setItem("cartNumbers", parseInt(productNumbers) + 1);
+      // qtyProducts.innerText += 1;
+    })
+ 
+  }
+ 
+  for (let i = 0; i < remove.length; i++) { 
+    // for loop - through all buttons and add addeventlistener and it does something
+    remove[i].addEventListener("click", () =>    { 
+      let int = document.getElementById(`qty${i}`)
+      // let qtyProducts = Object.values(products[1])[1];
+  
+      int.innerText = parseInt(int.innerText) - 1;
+      let productNumbers = localStorage.getItem("cartNumbers");
+      localStorage.setItem("cartNumbers", parseInt(productNumbers) - 1);
+    })
+   
   }
 
+  
 // --------- Creating a function for remove item in cart
 
 removeBtns();      // invokes the function 
@@ -320,107 +342,6 @@ location.reload()
   }
 }
 
-
-  // --------- Creating a function for remove item in cart
-
-  removeBtns();      // invokes the function 
-
-  function removeBtns() {                        // creates a function
-
-    let removeBtns = document.querySelectorAll(".delete_btn"); // create variable to get all button
-    let productNumbers = localStorage.getItem("cartNumbers");
-
-    console.log(removeBtns)
-
-    let cartProducts = localStorage.getItem("productsInCart");
-
-    console.log(cartProducts)
-
-    let cartTotal = localStorage.getItem("totalCost");
-console.log(cartTotal)
-
-     cartProducts = JSON.parse(cartProducts);
-    for (let i = 0; i < removeBtns.length; i++) {          // loops through all "removebuttons"
-      removeBtns[i].addEventListener("click", () => {       // adding an event to removeBtn when click and pass a function to it
-
-        let productName = Object.keys(cartProducts)[i];
-        console.log(productName)
-      
-        removeBtns[i].parentElement.remove()
-
-       // console.log(cartProducts.chanel.inCart)
-
-        localStorage.setItem("cartNumbers", productNumbers - cartProducts[productName].inCart); 
-
-        console.log(cartNumbers) 
-
-        console.log(cartTotal - (cartProducts[productName].price * cartProducts[productName].inCart))
-
-        localStorage.setItem("totalCost",cartTotal - (cartProducts[productName].price * cartProducts[productName].inCart));
-
-       
-
-        delete cartProducts[productName]
-
-        // delete cartnumbers
-        localStorage.setItem("productsInCart", JSON.stringify(cartProducts));
-
-       // localStorage.setItem("totalCost", JSON.stringify(cartTotal));
-      
-location.reload()
-      });
-    }
-  }
-
-
-  /* // manage to add/remove more item in cart
-
-  changingQty(); // invokes the function
-
-  function changingQty() {
-    let subBtn = document.querySelectorAll(".decrease");    // choose all the buttons that have decrease  
-    let addingBtn = document.querySelectorAll(".increase");  //choose all the buttons that have increase 
-    let cartItems = localStorage.getItem("productsInCart");  // grabbing the productsIncart in localstorage through creating a var
-    let currentQty = 0;
-    let currentProduct = "";                               //initialize the product
-    cartItems = JSON.parse(cartItems);                        // convert to JS object
-    console.log(cartItems);
-
-
-    for (let i = 0; i < subBtn.length; i++) {      // for loop - through all buttons and add addeventlistener and it does something
-      subBtn[i].addEventListener("click", () => {
-
-        currentQty = subBtn[i].parentElement.parentElement.querySelector("span").textContent;
-        console.log(currentQty);
-
-        currentProduct = subBtn[i].parentElement.parentElement.parentElement.querySelector("span").textContent;
-        console.log(currentProduct);
-
-
-        cartItems[currentProduct].inCart -= 1;
-        cartNumbers(cartItems[currentProduct], "decrease");
-        localStorage.setItem("productsInCart", JSON.stringify(cartItems));
-        console.log(cartNumbers)
-
-      });
-    }
-    for (let i = 0; i < addingBtn.length; i++) {
-      addingBtn[i].addEventListener("click", () => {
-
-        currentQty = addingBtn[i].parentElement.querySelector("span").textContent;
-        console.log(currentQty)
-
-        currentProduct = addingBtn[i].parentElement.parentElement.parentElement.querySelector("span").textContent;
-
-        console.log(currentProduct)
-
-
-      })
-    }
-  } */
-
-
-
   // Checkout button
 
   
@@ -431,78 +352,38 @@ let checkoutMessageContainer = document.querySelector(".checkout_message");
 
   function checkoutNow() {
 
+
     checkoutMessageContainer.innerHTML += `
   <div class = "checkoutMessage"> <h3 class "thank_you_title>Tack för ditt köp, din order är nu genomförd</h3> 
   <button class = "pdf_btn"> <i class="fas fa-file-pdf"></i> Ladda ner orderdetaljer som pdf</button>
   </div>
 `
-    const pdf = new jsPDF();
+const pdf = new jsPDF();
 
-    let pdfBtn = document.querySelector(".pdf_btn");
-
-
-    function savePDF() {
-
-      pdf.text(10, 10, `Totalt att betala: ${cartCost}   `);
-      pdf.save("Kvitto.pdf");
-    }
-
-    pdfBtn.addEventListener("click", savePDF);
+  let pdfBtn = document.querySelector(".pdf_btn");
+  
+  
+  
+  
+  function savePDF() {
+  
+    pdf.text(10, 10, `Totalt att betala: ${cartCost}   ` );
+    pdf.save("Kvitto.pdf");
+  }
+  
+  pdfBtn.addEventListener("click", savePDF);
 
   }
 
-}
 
+  
+ 
 
+} 
 onLoadCartNumbers()
 displayCart()
 
-/* const dataFromLocal = localStorage.getItem("produkt")
-
-const parsedData = JSON.parse(dataFromLocal)
-
-parsedData.map( productObject => {
-const productContainer = document.querySelector(".added_product_container");
 
 
-const productWrapper = document.createElement ("div");
-productContainer.appendChild(productWrapper);
-productWrapper.className += "added_product_wrapper";
-
-const addedProductImg = document.createElement ("img");
-productWrapper.appendChild(addedProductImg);
-addedProductImg.src = "/bilder/parfymset.jpeg"
-
-
-const productDiv = document.createElement ("div");
-productWrapper.appendChild(productDiv);
-productDiv.className += "added_product_div";
-
-const productTitle = document.createElement("h3");
-productTitle.innerText = productObject.name;
-productDiv.appendChild(productTitle);
-productTitle.className += "single_product_heading";
-
-
-const productDescription  = document.createElement("p");
-productDescription.innerText = productObject.description;
-productDiv.appendChild(productDescription);
-
-
-
-const productPrice  = document.createElement("span");
-productPrice.innerText = productObject.price;
-productDiv.appendChild(productPrice);
-
-const productBtn = document.createElement ("button");
-productDiv.appendChild(productBtn);
-productBtn.innerText = "Add to cart";
-productBtn.className += "productBtn";
-
-const editBtn = document.createElement ("button");
-productDiv.appendChild(editBtn);
-editBtn.innerText = "Edit product";
-editBtn.className += "editBtn";
-
-
-*/
+  
+  
