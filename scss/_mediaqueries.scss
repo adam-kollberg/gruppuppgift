@@ -1,4 +1,7 @@
-@media only screen  and (max-width:617px) {    
+@media only screen  and (max-width:617px) {   
+    
+    
+    
 
            //footer part starts here
     .footer {
@@ -13,7 +16,7 @@
         padding-bottom: 180px;
     }
 
-    h4 {
+     .footer h4 {
         display: none;    //social media's name will be disappered
     }
     .social-media img {     //instead of names, icons are displayed
@@ -128,3 +131,10 @@
 }
 
 // end of contact form
+
+@media only screen and (max-width: 856px) {
+    .basket-total-container {    //total price in the cart
+        margin-top: 30px;
+        
+            }
+}
