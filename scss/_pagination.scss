@@ -4,7 +4,7 @@ justify-content: center;
  
 
 li {
-padding: 0 1.5rem;
+padding: 0.7rem;
 
 a {
 
@@ -13,11 +13,13 @@ color: black;
 font-size: 1.5rem;
 }
 
-.active {
-color: green;
-}
 
 }
 
 
 }
+
+li.active {
+    background-color:#FAF050;
+    }
+    

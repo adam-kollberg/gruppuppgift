@@ -538,10 +538,11 @@ h4 {
   display: flex;
   justify-content: center; }
   .pagination li {
-    padding: 0 1.5rem; }
+    padding: 0.7rem; }
     .pagination li a {
       text-decoration: none;
       color: black;
       font-size: 1.5rem; }
-    .pagination li .active {
-      color: green; }
+
+li.active {
+  background-color: #FAF050; }
