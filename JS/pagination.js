@@ -2,7 +2,7 @@
 
 var numberOfItems = $('#page .list-group').length; // Get total number of the items that should be paginated
 var limitPerPage = 4; // Limit of items per each page
-$('#page .list-group:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
+$('#page .list-group:gt(' + (limitPerPage - 1) + ')').hide(); 
 var totalPages = Math.round(numberOfItems / limitPerPage); // Get number of pages
 $(".pagination").append("<li class='current-page active'><a href='javascript:void(0)'>" + 1 + "</a></li>"); // Add first page marker
 
@@ -63,13 +63,13 @@ $("#previous-page").on("click", function() {
     return false; // Return false (i.e., cannot navigate to a previous page because the current page is page 1)
   } else {
     currentPage--; // Decrement page by one
-    $(".pagination li").removeClass('active'); // Remove the 'activate' status class from the previous active page number
-    $("#page .list-group").hide(); // Hide all items in the pagination loop
-    var grandTotal = limitPerPage * currentPage; // Get the total number of items up to the page that was selected
+    $(".pagination li").removeClass('active'); 
+    $("#page .list-group").hide(); 
+    var grandTotal = limitPerPage * currentPage; 
 
     // Loop through total items, selecting a new set of items based on page number
     for (var i = grandTotal - limitPerPage; i < grandTotal; i++) {
-      $("#page .list-group:eq(" + i + ")").show(); // Show items from the new page that was selected
+      $("#page .list-group:eq(" + i + ")").show(); // 
     }
 
     $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass('active'); // Make new page number the 'active' page

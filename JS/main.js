@@ -5,7 +5,7 @@
 
 class photoGallery {
   constructor() {
-   this.API_KEY = "563492ad6f91700001000001f3bf8f62aaf54488b3f02e6efa474d04";
+   this.API_KEY = "563492ad6f917000010000013f814e23972e4212a409926251033267";
    this.galleryDiv = document.querySelector(".gallery");
    this.searchForm = document.querySelector(".header form");
    this.loadMore = document.querySelector(".load_more");
@@ -368,9 +368,6 @@ const pdf = new jsPDF();
  
 
 }
-
-
-
 
 
 
