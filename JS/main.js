@@ -17,7 +17,6 @@ class photoGallery {
     const baseURL = "https://api.pexels.com/v1/search?query=perfume&per_page=12";
     const data = await this.fetchImages(baseURL);
     this.generateHTML(data.photos);
-    console.log(data);
   }
 
   async fetchImages(baseURL) {
@@ -43,19 +42,19 @@ class photoGallery {
     
       
       `
-
-      this.galleryDiv.appendChild(item);
+      if (this.galleryDiv) {
+        this.galleryDiv.appendChild(item);
+      }
     })
   }
 }
 
 const gallery = new photoGallery;
 
-// add to cart button
-let carts = document.querySelectorAll(".single_product_btn");
-
+// All products stored here
 const products = [
   {
+    id: 0,
     name: "Chanel fragance",
     description: "chanel",
     image: "/bilder/chanel.jpeg",
@@ -63,6 +62,7 @@ const products = [
     inCart: 0
   },
   {
+    id: 1,
     name: "D&G Fragance",
     description: "d&g",
     image: "/bilder/dolce.jpeg",
@@ -71,6 +71,7 @@ const products = [
   },
 
   {
+    id: 2,
     name: "Parfymset",
     description: "parfymset",
     image: "/bilder/parfymset.jpeg",
@@ -79,6 +80,7 @@ const products = [
   },
 
   {
+    id: 3,
     name: "D&G Fragance",
     description: "dolce",
     image: "/bilder/dolce.jpeg",
@@ -87,6 +89,7 @@ const products = [
   },
 
   {
+    id: 4,
     name: "D&G Fragance",
     description: "dolce",
     image: "/bilder/dolce.jpeg",
@@ -95,6 +98,7 @@ const products = [
   },
 
   {
+    id: 5,
     name: "D&G Fragance",
     description: "dolce",
     image: "/bilder/dolce.jpeg",
@@ -103,6 +107,7 @@ const products = [
   },
   
   {
+    id: 6,
     name: "D&G Fragance",
     description: "dolce",
     image: "/bilder/dolce.jpeg",
@@ -111,6 +116,7 @@ const products = [
   },
 
   {
+    id: 7,
     name: "D&G Fragance",
     description: "dolce",
     image: "/bilder/dolce.jpeg",
@@ -119,21 +125,28 @@ const products = [
   }
 ];
 
+// Get the product wrapper from index.html
 const productWrapper = document.querySelector('.product_wrapper');
 
-products.forEach((product) => {
-  productWrapper.innerHTML += `
-    <div class="single_product_wrapper">
-      <img src="${product.image}" alt="" class="single_product_img">
-      <div class="product_info" id=${product.id}>
-        <h3 class="single_product_heading">${product.name}</h3>
-        <p class="single_product_description">${product.description}</p>
-        <p class="single_product_price">${product.price} kr</p>
-        <button class="single_product_btn">Lägg i varukorg</button>
+// Render all the product elements in product wrapper.
+if (productWrapper) {
+  products.forEach((product) => {
+    productWrapper.innerHTML += `
+      <div class="single_product_wrapper">
+        <img src="${product.image}" alt="" class="single_product_img">
+        <div class="product_info" id=${product.id}>
+          <h3 class="single_product_heading">${product.name}</h3>
+          <p class="single_product_description">${product.description}</p>
+          <p class="single_product_price">${product.price} kr</p>
+          <button class="single_product_btn">Lägg i varukorg</button>
+        </div>
       </div>
-    </div>
-  `;
-});
+    `;
+  });
+}
+
+// add to cart button
+let carts = document.querySelectorAll(".single_product_btn");
 
 
 // For loop for the cart length plus eventlistner to button
@@ -181,20 +194,20 @@ function setItems(product) {
 
   if (cartItems != null) {
 
-    if (cartItems[product.description] == undefined) {
+    if (cartItems[product.id] == undefined) {
       cartItems = {
-        ...cartItems, [product.description]: product
+        ...cartItems, [product.id]: product
       }
 
     }
 
 
-    cartItems[product.description].inCart += 1;
+    cartItems[product.id].inCart += 1;
   } else {
     product.inCart = 1;
 
     cartItems = {
-      [product.description]: product
+      [product.id]: product
     }
 
   }
@@ -208,19 +221,48 @@ function setItems(product) {
 
 }
 
-
+// Function that adds to total cost
 function totalCost(product) {
+  // Get current total cost from local storage
   let cartCost = localStorage.getItem("totalCost");
 
+  // Get the rendered total cost
+  const totalCostElement = document.querySelector('.basket-total');
 
-
-  if (cartCost != null) {
+  // If cart cost is set in local storage
+  if (cartCost) {
+    // Convert it to a number
     cartCost = parseInt(cartCost);
+    // Add product price to the cost set in local storage
     localStorage.setItem("totalCost", cartCost + product.price);
+    // Render the new total cost
+    totalCostElement.innerHTML = cartCost + product.price + ',00kr';
+
   } else {
+    // Set the product price to be the total cost
     localStorage.setItem("totalCost", product.price);
+    // Render the new total cost
+    totalCostElement.innerHTML = product.price + ',00kr';
   }
 
+}
+
+// Function that subtracts from total cost
+function subtractTotalCost(product) {
+  // Get current total cost from local storage
+  let cartCost = localStorage.getItem("totalCost");
+  // Get the rendered total cost
+  const totalCostElement = document.querySelector('.basket-total');
+
+  // If cart cost is set in local storage
+  if (cartCost) {
+    // Convert it to a number
+    cartCost = parseInt(cartCost);
+    // Subtract product price to the cost set in local storage
+    localStorage.setItem("totalCost", cartCost - product.price);
+    // Render the new total cost
+    totalCostElement.innerHTML = cartCost - product.price + ',00kr';
+  }
 }
 
 function displayCart() {
@@ -229,9 +271,9 @@ function displayCart() {
   let productContainer = document.querySelector(".products");
   let cartCost = localStorage.getItem("totalCost");
 
-
   if (cartItems && productContainer) {
     productContainer.innerHTML = "";
+  
     Object.values(cartItems).map((item, i) => {
       productContainer.innerHTML += `
       <div class="product">
@@ -243,9 +285,9 @@ function displayCart() {
           <span><h5>Pris:</h5>${item.price},00kr</span>
           <div class="quantity">
             <span><h5>Antal:</h5></span>
-            <ion-icon class="decrease" name="chevron-back-outline"></ion-icon> 
+            <ion-icon class="decrease" name="chevron-back-outline" data-id="${item.id}"></ion-icon> 
             <span id="qty${i}">${item.inCart}</span>
-            <ion-icon class="increase" name="chevron-forward-outline"></ion-icon>
+            <ion-icon class="increase" name="chevron-forward-outline" data-id="${item.id}"></ion-icon>
           </div>
         </div>
       </div>`
@@ -264,27 +306,62 @@ function displayCart() {
    let add = document.querySelectorAll(".increase")   // choose all increase buttons
    let remove = document.querySelectorAll (".decrease") // choose all decrease buttons         // 
    for (let i = 0; i < add.length; i++) {   // loop buttons and add addeventlistener to click
-    add[i].addEventListener("click", () => { 
-      let int = document.getElementById(`qty${i}`)  
-      // let qtyProducts = Object.values(products[1])[1];   // 
+    add[i].addEventListener("click", (event) => { 
+      // Get the rendered quantity
+      let qtyElement = document.getElementById(`qty${i}`);
+      // Get the rendered product id
+      const productId = event.target.getAttribute('data-id');
+      // Get the products stored in cart
+      const productsInCart = JSON.parse(localStorage.getItem('productsInCart'));
+      // Increase in cart based on the product id matching one of the items in products stored above
+      const numberOfProducts = productsInCart[productId].inCart += 1;
+      // Update local storage 
+      localStorage.setItem('productsInCart', JSON.stringify(productsInCart));
 
-      int.innerText = parseInt(int.innerText) + 1;
+      // Update redered text
+      qtyElement.innerText = numberOfProducts;
+      // Get cart numbers
       let productNumbers = localStorage.getItem("cartNumbers");
+      // Update cart numbers
       localStorage.setItem("cartNumbers", parseInt(productNumbers) + 1);
-      // qtyProducts.innerText += 1;
+
+      // Update rendered cart numbers
+      onLoadCartNumbers();
+      // Update total cost in local storage and rendered text
+      totalCost(products[productId]);
     })
  
   }
  
   for (let i = 0; i < remove.length; i++) { 
     // for loop - through all buttons and add addeventlistener and it does something
-    remove[i].addEventListener("click", () =>    { 
-      let int = document.getElementById(`qty${i}`)
-      // let qtyProducts = Object.values(products[1])[1];
-  
-      int.innerText = parseInt(int.innerText) - 1;
-      let productNumbers = localStorage.getItem("cartNumbers");
-      localStorage.setItem("cartNumbers", parseInt(productNumbers) - 1);
+    remove[i].addEventListener("click", (event) =>    {
+      // Get the rendered quantity
+      let qtyElement = document.getElementById(`qty${i}`)
+      // Get the rendered product id
+      const productId = event.target.getAttribute('data-id');
+       // Get the products stored in cart
+      const productsInCart = JSON.parse(localStorage.getItem('productsInCart'));
+
+      // Only decrease if the nubmer of items in cart is greater than 0
+      if (productsInCart[productId].inCart > 0) {
+        // Decrease in cart based on the product id matching one of the items in products stored above
+        const numberOfProducts = productsInCart[productId].inCart -= 1;
+        // Update local storage 
+        localStorage.setItem('productsInCart', JSON.stringify(productsInCart));
+
+        // Update rendered text
+        qtyElement.innerText = numberOfProducts;
+        // Get cart numbers
+        let productNumbers = localStorage.getItem("cartNumbers");
+        // Update cart numbers
+        localStorage.setItem("cartNumbers", parseInt(productNumbers) - 1);
+
+        // Update rendered cart numbers
+        onLoadCartNumbers();
+        // Update total cost in local storage and rendered text
+        subtractTotalCost(products[productId]);
+      }
     })
    
   }
@@ -346,7 +423,9 @@ location.reload()
   
 let checkOutBtn = document.querySelector(".checkout-btn");
 let checkoutMessageContainer = document.querySelector(".checkout_message");
- checkOutBtn.addEventListener("click", checkoutNow);
+if (checkOutBtn) {
+  checkOutBtn.addEventListener("click", checkoutNow);
+}
 
 
   function checkoutNow() {
@@ -381,8 +460,3 @@ const pdf = new jsPDF();
 } 
 onLoadCartNumbers()
 displayCart()
-
-
-
-  
-  
