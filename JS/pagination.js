@@ -1,77 +1,78 @@
 'use strict';
 
-var numberOfItems = $('#page .list-group').length; // Get total number of the items that should be paginated
-var limitPerPage = 4; // Limit of items per each page
+var numberOfItems = $('#page .list-group').length;  //Hämta totala antalet produkter som ska läggas in i olika sidor
+var limitPerPage = 4; // Sätt en limit på hur många produkter på en sida
 $('#page .list-group:gt(' + (limitPerPage - 1) + ')').hide(); 
-var totalPages = Math.round(numberOfItems / limitPerPage); // Get number of pages
-$(".pagination").append("<li class='current-page active'><a href='javascript:void(0)'>" + 1 + "</a></li>"); // Add first page marker
+var totalPages = Math.round(numberOfItems / limitPerPage); // hämta antalet sidor
+$(".pagination").append("<li class='current-page active'><a href='javascript:void(0)'>" + 1 + "</a></li>"); // Lägg till en lista till klassnamnet pagination som har värdet 1
 
-// Loop to insert page number for each sets of items equal to page limit (e.g., limit of 4 with 20 total items = insert 5 pages)
+// Loop för att att sätta antalet produkter till antalet sidor om vi tex har 20 produkter så blir det 5 sidor, eftersom vi har en pagelimit på 4 produkter
 for (var i = 2; i <= totalPages; i++) {
-  $(".pagination").append("<li class='current-page'><a href='javascript:void(0)'>" + i + "</a></li>"); // Insert page number into pagination tabs
+  $(".pagination").append("<li class='current-page'><a href='javascript:void(0)'>" + i + "</a></li>"); // Sätt in sidnumret i nästa lista
 }
 
-// Add next button after all the page numbers  
+// Sätt in nästa ikonen 
 $(".pagination").append("<li id='next-page'><a href='javascript:void(0)' aria-label=Next><span aria-hidden=true>&raquo;</span></a></li>");
 
-// Function that displays new items based on page number that was clicked
+// funktion som visar nya produkter beroende på vilken sidnummer det klickar på
 $(".pagination li.current-page").on("click", function() {
-  // Check if page number that was clicked on is the current page that is being displayed
-  if ($(this).hasClass('active')) {
-    return false; // Return false (i.e., nothing to do, since user clicked on the page number that is already being displayed)
+    
+    
+    // Kolla ifall att sidnumret man klickar på är dee förra sidan man var på
+    if ($(this).hasClass('active')) {
+    return false; // returnerr falskt eftersom inget ska hända om man klickar på samma sida som man är på.
   } else {
-    var currentPage = $(this).index(); // Get the current page number
-    $(".pagination li").removeClass('active'); // Remove the 'active' class status from the page that is currently being displayed
-    $(this).addClass('active'); // Add the 'active' class status to the page that was clicked on
-    $("#page .list-group").hide(); // Hide all items in loop, this case, all the list groups
-    var grandTotal = limitPerPage * currentPage; // Get the total number of items up to the page number that was clicked on
-
-    // Loop through total items, selecting a new set of items based on page number
+    var currentPage = $(this).index(); // Det förra sidnumret
+    $(".pagination li").removeClass('active'); // Ta bort classnamnet active från den gamla sidan man var på
+    $(this).addClass('active'); // Lägg till klassnamnet active på den nya sidan man klickar sig till
+    $("#page .list-group").hide(); // Göm alla element i loopen när du klickar på en ny sida
+    var grandTotal = limitPerPage * currentPage; // Hämta totala antalet produkter på den nya sidan du klickar på
+    
+    // Loopa igenom totala antalet produkter, och välj nya produkter baserat på sidnummer
     for (var i = grandTotal - limitPerPage; i < grandTotal; i++) {
-      $("#page .list-group:eq(" + i + ")").show(); // Show items from the new page that was selected
+      $("#page .list-group:eq(" + i + ")").show(); // Visa nya produkter från den nya sidan du klickar på
     }
   }
 
 });
 
-// Function to navigate to the next page when users click on the next-page id (next page button)
+// Funkktion för next page button
 $("#next-page").on("click", function() {
-  var currentPage = $(".pagination li.active").index(); // Identify the current active page
-  // Check to make sure that navigating to the next page will not exceed the total number of pages
+  var currentPage = $(".pagination li.active").index(); // identifiera den nuvarande active class
+  // Kolla så att du inte går förbi antalet sidor
   if (currentPage === totalPages) {
-    return false; // Return false (i.e., cannot navigate any further, since it would exceed the maximum number of pages)
+    return false; // returnerar falskt eftersom det inte finns mer produkter att visa och då inte heller fler sidor
   } else {
-    currentPage++; // Increment the page by one
-    $(".pagination li").removeClass('active'); // Remove the 'active' class status from the current page
-    $("#page .list-group").hide(); // Hide all items in the pagination loop
-    var grandTotal = limitPerPage * currentPage; // Get the total number of items up to the page that was selected
+    currentPage++; //  annars Öka sidnumret med 1
+    $(".pagination li").removeClass('active'); // Ta bort classnamnet active från den gamla sidan man var på
+    $("#page .list-group").hide(); // Göm alla gamla element i loopen när du klickar på en ny sida
+    var grandTotal = limitPerPage * currentPage; // Hämta totala antalet produkter på den nya sidan du klickar på
 
-    // Loop through total items, selecting a new set of items based on page number
+    // Loopa igenom totala antalet produkter, och välj nya produkter baserat på sidnummer
     for (var i = grandTotal - limitPerPage; i < grandTotal; i++) {
       $("#page .list-group:eq(" + i + ")").show(); // Show items from the new page that was selected
     }
 
-    $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass('active'); // Make new page number the 'active' page
+    $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass('active'); // Ge det nya sidnumret klassnamnet active
   }
 });
 
-// Function to navigate to the previous page when users click on the previous-page id (previous page button)
+// Funkktion för previous page button
 $("#previous-page").on("click", function() {
-  var currentPage = $(".pagination li.active").index(); // Identify the current active page
-  // Check to make sure that users is not on page 1 and attempting to navigating to a previous page
+  var currentPage = $(".pagination li.active").index(); // identifiera den nuvarande active class
+  // kolla så att man inte är på sidan 1
   if (currentPage === 1) {
-    return false; // Return false (i.e., cannot navigate to a previous page because the current page is page 1)
+    return false; // returnerar falskt eftersom man inte kan gå längre bak än sidan 1
   } else {
-    currentPage--; // Decrement page by one
-    $(".pagination li").removeClass('active'); 
-    $("#page .list-group").hide(); 
-    var grandTotal = limitPerPage * currentPage; 
-
-    // Loop through total items, selecting a new set of items based on page number
+    currentPage--; // Minksa sidnumret med 1
+    $(".pagination li").removeClass('active');  // ta bort active classname
+    $("#page .list-group").hide();  // Göm gamla element
+    var grandTotal = limitPerPage * currentPage; // totala antalet element
+     // Loopa igenom atalet produkter och välja nya produkter baserat på sidunummer
     for (var i = grandTotal - limitPerPage; i < grandTotal; i++) {
       $("#page .list-group:eq(" + i + ")").show(); // 
     }
 
-    $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass('active'); // Make new page number the 'active' page
+    $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass('active'); // Gör den nya sidan active classname
   }
 });
