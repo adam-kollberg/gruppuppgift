@@ -40,9 +40,7 @@ class photoGallery {
       item.innerHTML = `
       
       <img src="${photo.src.medium}">
-      
-      
-      
+    
       
       `
 
@@ -260,6 +258,7 @@ function displayCart() {
     <div>
     `
   }
+  
 //--------------- increase and decrease items---------
 
    let add = document.querySelectorAll(".increase")   // choose all increase buttons
