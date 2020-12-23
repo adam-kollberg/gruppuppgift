@@ -126,13 +126,13 @@ const products = [
 ];
 
 // Get the product wrapper from index.html
-const productWrapper = document.querySelector('.product_wrapper');
+const productWrapper = document.querySelector('.page');
 
 // Render all the product elements in product wrapper.
 if (productWrapper) {
   products.forEach((product) => {
     productWrapper.innerHTML += `
-      <div class="single_product_wrapper">
+      <div class="list-group">
         <img src="${product.image}" alt="" class="single_product_img">
         <div class="product_info" id=${product.id}>
           <h3 class="single_product_heading">${product.name}</h3>
