@@ -241,9 +241,9 @@ function displayCart() {
     });
     productContainer.innerHTML += ` 
     <div class = "basket-total-container">
-      <h4 class = "basket-total-title">Totalt i varukorgen:</h4>
+      <h4 class = "basket-total-title">Total:</h4>
       <h4 class = "basket-total"> ${cartCost},00kr </h4>
-      <button class = "checkout-btn">Genomför Köp</button>
+      <button class = "checkout-btn">Complete Purchase</button>
     <div>
     `
   }
@@ -379,8 +379,8 @@ if (checkOutBtn) {
 
 
     checkoutMessageContainer.innerHTML += `
-  <div class = "checkoutMessage"> <h3 class "thank_you_title>Tack för ditt köp, din order är nu genomförd</h3> 
-  <button class = "pdf_btn"> <i class="fas fa-file-pdf"></i> Ladda ner orderdetaljer som pdf</button>
+  <div class = "checkoutMessage"> <h3 class "thank_you_title>Thankyou for shopping, your order is now confirmed</h3> 
+  <button class = "pdf_btn"> <i class="fas fa-file-pdf"></i> Download Order Details as pdf</button>
   </div>
 `
 const pdf = new jsPDF();
@@ -392,7 +392,7 @@ const pdf = new jsPDF();
   
   function savePDF() {
   
-    pdf.text(10, 10, `Totalt att betala: ${cartCost}   ` );
+    pdf.text(10, 10, `Total Amount: ${cartCost}   ` );
     pdf.save("Kvitto.pdf");
   }
   
