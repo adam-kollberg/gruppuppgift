@@ -290,8 +290,8 @@ function displayCart() {
        // Get the products stored in cart
       const productsInCart = JSON.parse(localStorage.getItem('productsInCart'));
 
-      // Only decrease if the nubmer of items in cart is greater than 0
-      if (productsInCart[productId].inCart > 0) {
+      // Only decrease if the nubmer of items in cart is greater than 1
+      if (productsInCart[productId].inCart > 1) {
         // Decrease in cart based on the product id matching one of the items in products stored above
         const numberOfProducts = productsInCart[productId].inCart -= 1;
         // Update local storage 
