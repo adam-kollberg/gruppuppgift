@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="JS/pagination.js" defer></script>
+    <!-- <script src="JS/main.js" defer></script>
+    <script src="JS/gallery.js" defer></script> -->
+    
+
+    <script src="JS/editProduct.js" defer></script>
+  
+
+    <title>Admin Edit Product Page</title>
+
+</head>
+
+<header class="site_header">
+  <div class="logo_container">
+  <h1>THE PERFUMERY</h1>
+  </div>
+  
+  <label for = "toggle">&#9776;</label>
+          <input type = "checkbox" id = "toggle" />
+  
+  <div class ="menu">
+  
+     <a href = "index.html"><ion-icon name="home-outline"></ion-icon>Home</a>
+     <a href = "login.html">
+      <ion-icon name="person-outline"></ion-icon>Admin</a> 
+     <a class = "cart" href = "cart.html">
+          <ion-icon name= "basket"></ion-icon>Cart<span>0</span></a> 
+
+          
+   
+  
+  
+  </div>
+    
+  </header>
+
+
+
+
+    <!--Inputform for admin to add products to website-->
+    <div class="edit--input--div">
+      
+      <form class="edit--input--form">
+        <br><br>
+        <h2>Edit product</h2></br>
+        <label for="name">Edit Name</label></br>
+        <input type="text" id="edit_product_name" name="name">
+        <label for="description">Edit Description</label>
+        <input type="text" id="edit_product_description" name="description">
+        <label for="price">Edit Price</label>
+        <input type="number" id="edit_product_price" name="price">
+        <label class="formImage" for="name">Image</label>
+        <input type="text" id="product_img" alt="Perfume image" name="image" placeholder="Product Image"><br></br>
+        
+        <button type="submit" class="edit_product">Update Product</button>
+      </br></br>
+      </form>
+     
+    </div>
+    
+
+    <div class="admin__edit_product_container">
+
+
+
+
+
+    </div>
+
+
+
+    <footer class="footer-section" id="admin--footer">
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>
+  <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>    
+  </body>
+  </html>
+
