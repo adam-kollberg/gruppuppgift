@@ -244,7 +244,7 @@ function displayCart() {
       <h4 class = "basket-total-title">Total:</h4>
       <h4 class = "basket-total"> ${cartCost},00kr </h4>
       <button class = "checkout-btn">Complete Purchase</button>
-    <div>
+    </div>
     `
   }
   
