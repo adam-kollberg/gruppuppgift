@@ -434,6 +434,14 @@ h4 {
   width: 300px;
   height: 300px; }
 
+.admin_product_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 40px;
+  margin-bottom: 40px; }
+
 .added_product_div {
   display: flex;
   flex-direction: column;
@@ -442,7 +450,8 @@ h4 {
   align-items: center;
   background-color: #F8F6F2;
   padding: 2rem;
-  margin-bottom: 80px; }
+  margin-left: 20px;
+  margin-right: 20px; }
   .added_product_div button {
     background-color: #FAF050;
     border-style: none;
