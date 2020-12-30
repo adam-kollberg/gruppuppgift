@@ -18,7 +18,7 @@ $(".pagination").append("<li id='next-page'><a href='javascript:void(0)' aria-la
 $(".pagination li.current-page").on("click", function() {
     
     
-    // Kolla ifall att sidnumret man klickar på är dee förra sidan man var på
+    // Kolla ifall att sidnumret man klickar på är de förra sidan man var på
     if ($(this).hasClass('active')) {
     return false; // returnerr falskt eftersom inget ska hända om man klickar på samma sida som man är på.
   } else {
