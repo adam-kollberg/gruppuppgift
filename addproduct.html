@@ -6,111 +6,86 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="JS/addProduct.js" defer></script>
-    
-    
-    <title>Add product</title>
-</head>
-<body>
-  <div id = "container">
+    <script src="JS/pagination.js" defer></script>
+    <!-- <script src="JS/main.js" defer></script> -->
+    <!-- <script src="JS/gallery.js" defer></script> -->
 
-    <div id = "main">
-
-  
-      <header class="site_header">
-        <div class="logo_container">
-        <h1>SHOP</h1>
-        </div>
-        
-        <label for = "toggle">&#9776;</label>
-                <input type = "checkbox" id = "toggle" />
-        
-        <div class ="menu">
-        
-           <a href = "index.html"><ion-icon name="home-outline"></ion-icon>Hem</a>
-           <a href = "login.html">
-            <ion-icon name="add-circle-outline"></ion-icon>Add product</a> 
-            <a href = "addedproducts.html"><ion-icon name="checkmark-circle-outline"></ion-icon>Added products</a>
-           
-
-                
-         
-        
-        
-        </div>
-          
-        </header>
-
-
-<!-- inputs/add-button  -->
-<div class="add_product_container">
-        <form>
-
-            <h2>Lägg till produkt</h2> 
-             
-             
-        
-        <!-- inputs/add-button  -->
-        
    
-            
-            <!--<input type="text" id="product_name" placeholder="Produktnamn">
-            <input id="product_description" name="description" placeholder="Ange produktbeskrivning" required ="required">-->
-           
-            <input type="text" id="product_name" placeholder="Produktnamn" required>
-            <input id="product_description" name="description" placeholder="Ange produktbeskrivning" required >
-             </input>
-            <input type="number" id="product_price" placeholder="Produktpris" required>
-            <input type="number" id="product_id" placeholder="Produkt ID" required>
 
-            <button class="add_product">Lägg till produkt</button>
-        
-        </form>
+    <script src="JS/addProduct.js" defer></script>
+    <!-- <script src="main.js" defer></script> -->
 
+    <title>Admin Product Page</title>
+</head>
+<!--Call function view() on load-->
+<!-- <body onload="product_card();"> -->
+  <header class="site_header">
+    <div class="logo_container">
+    <h1>THE PERFUMERY</h1>
     </div>
-
-    <div class="product_container">
-
-
-
-
-    </div>
-  </div>
-  </div>
-
-    <footer class= "footer">
-     
-      <div class = "quick-links">
-        <h3>SNABB LÄNKAR</h3>
-        <ul>
-        <li><a href = "index.html">Hem</a></li>
-        <li><a href = "addproduct.html">Add Product</a></li>
-        <li><a href = "contact.html">Kontakta Oss</a> </li>
-      </ul>
-    </div>
-
-      <div class = "download-apps">
-        <ul>
-         <h3>INSTALLERA VÅRA APPAR</h3>
-        <li> <a href = "https://www.apple.com"> <img src = "bilder/apple-logo.png" alt = "apple app logo"> </a> </li>
-        <li> <a href = "https://play.google.com/store"> <img src = "bilder/google-logo.png" alt = "google app logo"></a></li>
-      </ul>
-    </div>
-
-      <div class = "social-media">
-        <h3>FÖLJ OSS PÅ</h3>
-        <ul>
-          <li> <a href = "https://www.facebook.com/"><h4>Facebook</h4><img src = "bilder/facebook.jpg"></a></li>
-          <li> <a href = "https://www.instagram.com/"><h4>Instagram</h4><img src = "bilder/instagram.webp"></a></li>
-          <li> <a href = "https://twitter.com/"><h4>Twitter</h4><img src= "bilder/twitter.png"></a></li>
-      </ul>
-      </div>
     
+    <label for = "toggle">&#9776;</label>
+            <input type = "checkbox" id = "toggle" />
+    
+    <div class ="menu">
+    
+       <a href = "index.html"><ion-icon name="home-outline"></ion-icon>Home</a>
+       <a href = "login.html">
+        <ion-icon name="person-outline"></ion-icon>Admin Page</a> 
+       <a class = "cart" href = "cart.html">
+            <ion-icon name= "basket"></ion-icon>Cart<span>0</span></a> 
+
+            
+     
+    
+    
+    </div>
+      
+    </header>
+
+
+    <!--Inputform for admin to add products to website-->
+    <div class="input--div">
+      
+      <form class="input--form">
+      </br>
+        <h2>Add product</h2>
+      </br>
+        <label class="formText" for="name"></label>
+        <input type="text" id="product_name" name="name" placeholder="Product Name" required>
+        <label class="formText" for="description"></label>
+        <input type="text" id="product_description" name="description" placeholder="Product Description" required>
+        <label class="formText" for="price"></label>
+        <input type="number" id="product_price" name="price" placeholder="Product Price" required>
+        <label class="formImage" for="name"></label>
+        <input type="text" id="product_img" alt="Perfume image" name="image" placeholder="Product Image"></br>
+      <button class="add_product" id="product--add">Add Product</button><br><br>
+    </form><!-- <button onclick="save();" class="product--add" data-id="button">Submit</button> -->
+      <!-- <button id = "add_new_product"; class="product--add">Submit</button> -->
+    </div>
+  </br>
+    <!--!!!!!!!!!!!Vi hade tidigare skrivit endast id inte data-id???-->
+
+    <div class="admin_product_container">
+
+
+
+
+
+    </div>
+
+
+
+    <footer class="footer-section" id="admin--footer">
     </footer>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>
-    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>    
-</body>
-</html>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>
+  <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>    
+  </body>
+  </html>
+
 

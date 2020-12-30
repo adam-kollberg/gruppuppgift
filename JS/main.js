@@ -10,19 +10,19 @@ const products = [
   },
   {
     id: 1,
-    name: "D&G Fragance",
-    description: "d&g",
-    image: "/bilder/dolce.jpeg",
-    price: 1100,
+    name: "Luxury perfume Gift set",
+    description: "Parfymset",
+    image: "/bilder/Parfymset.jpeg",
+    price: 900,
     inCart: 0
   },
 
   {
     id: 2,
-    name: "Parfymset",
-    description: "parfymset",
-    image: "/bilder/parfymset.jpeg",
-    price: 900,
+    name: "D&G fragance",
+    description: "D&G",
+    image: "/bilder/D&G.jpeg",
+    price: 1100,
     inCart: 0
   },
 
@@ -227,11 +227,11 @@ function displayCart() {
         <ion-icon class="delete_btn" name="close-circle-outline"></ion-icon>
         <img src="./bilder/${item.description}.jpeg">
         <div class="cart-product-wrapper">
-          <h5>Produktnamn:</h5>
+          <h5>Productname:</h5>
           <span>${item.name}</span>
-          <span><h5>Pris:</h5>${item.price},00kr</span>
+          <span><h5>Price:</h5>${item.price},00kr</span>
           <div class="quantity">
-            <span><h5>Antal:</h5></span>
+            <span><h5>Quantity:</h5></span>
             <ion-icon class="decrease" name="chevron-back-outline" data-id="${item.id}"></ion-icon> 
             <span id="qty${i}">${item.inCart}</span>
             <ion-icon class="increase" name="chevron-forward-outline" data-id="${item.id}"></ion-icon>
@@ -241,9 +241,9 @@ function displayCart() {
     });
     productContainer.innerHTML += ` 
     <div class = "basket-total-container">
-      <h4 class = "basket-total-title">Totalt i varukorgen:</h4>
+      <h4 class = "basket-total-title">Total:</h4>
       <h4 class = "basket-total"> ${cartCost},00kr </h4>
-      <button class = "checkout-btn">Genomför Köp</button>
+      <button class = "checkout-btn">Complete Purchase</button>
     <div>
     `
   }
@@ -290,8 +290,8 @@ function displayCart() {
        // Get the products stored in cart
       const productsInCart = JSON.parse(localStorage.getItem('productsInCart'));
 
-      // Only decrease if the nubmer of items in cart is greater than 0
-      if (productsInCart[productId].inCart > 0) {
+      // Only decrease if the nubmer of items in cart is greater than 1
+      if (productsInCart[productId].inCart > 1) {
         // Decrease in cart based on the product id matching one of the items in products stored above
         const numberOfProducts = productsInCart[productId].inCart -= 1;
         // Update local storage 
@@ -379,8 +379,8 @@ if (checkOutBtn) {
 
 
     checkoutMessageContainer.innerHTML += `
-  <div class = "checkoutMessage"> <h3 class "thank_you_title>Tack för ditt köp, din order är nu genomförd</h3> 
-  <button class = "pdf_btn"> <i class="fas fa-file-pdf"></i> Ladda ner orderdetaljer som pdf</button>
+  <div class = "checkoutMessage"> <h3 class "thank_you_title>Thankyou for shopping, your order is now confirmed</h3> 
+  <button class = "pdf_btn"> <i class="fas fa-file-pdf"></i> Download Order Details as pdf</button>
   </div>
 `
 const pdf = new jsPDF();
@@ -392,7 +392,7 @@ const pdf = new jsPDF();
   
   function savePDF() {
   
-    pdf.text(10, 10, `Totalt att betala: ${cartCost}   ` );
+    pdf.text(10, 10, `Total Amount: ${cartCost}   ` );
     pdf.save("Kvitto.pdf");
   }
   

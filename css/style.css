@@ -59,11 +59,11 @@ form {
 
 .product_heading {
   display: flex;
-  height: 10vh;
+  height: 5vh;
   justify-content: center;
   align-items: center;
   font-size: 7vw;
-  padding: 4rem;
+  padding: 5vw;
   background-color: #F8F6F2;
   margin-top: 40px;
   margin-bottom: 40px; }
@@ -152,7 +152,10 @@ label {
   margin: 0 40px 0 0;
   font-size: 26px;
   line-height: 70px;
-  display: none; }
+  display: none;
+  width: 30px;
+  position: relative;
+  left: 90%; }
 
 #toggle {
   display: none; }
@@ -171,6 +174,9 @@ label {
   justify-content: center;
   align-items: center;
   text-align: center; }
+
+.product_heading h1 {
+  font-size: 6vw; }
 
 .cart-product-wrapper {
   display: flex;
@@ -319,13 +325,13 @@ h4 {
   margin-right: 50px; }
 
 #phone {
-  margin-left: 28px; }
+  margin-left: 14px; }
 
 #name {
   margin-left: 27px; }
 
 #email {
-  margin-left: 18px; }
+  margin-left: 22px; }
 
 #contact_btn {
   background-color: lightgray;
@@ -337,7 +343,7 @@ h4 {
 
 #message {
   min-height: 80px;
-  margin-left: -30px;
+  margin-left: -6px;
   text-overflow: hidden;
   overflow-wrap: break-word; }
 
